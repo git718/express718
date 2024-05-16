@@ -1,0 +1,41 @@
+<div>
+    <h2>MESSAGES</h2>
+    <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+      <% if (data[0]) {%>
+        <% for (let i of data) { %>
+              
+      <ul class="list-group">
+        <li class="list-group-item">
+            <div style="display: flex; justify-content: space-between;">
+                <div style="display: flex; flex-direction: column;"> 
+                    <h5>From: <%=i.from_user%></h5>
+                    <h5>To: <%=i.to_user%></h5>
+                    <p>
+                        <section>
+                            <%=i.content%>
+                        </section>
+                    </p>
+                    <form action="/sendprivate2" method="POST">
+                        <input type="hidden" name="from_user"  value="<%= i.to_user %>">
+                        <input type="hidden" name="to_user"  value="<%= i.from_user %>">
+                        <input type="hidden" name="response"  value="sent!">
+                        <input type="hidden" name="content"  value="<%= i.content %>">
+                        <input type="text" class="form-control" id="private" name="private">
+                        <button class="btn btn-outline-secondary"
+                        style="--bs-btn-padding-y: .05rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Reply</button>
+                    </form>
+                </div>
+                    <a href="/private/<%=i.id%>">
+                        <img src="images/icons8-delete-67.png" alt="delete">
+                    </a>
+            </div>
+        </li>
+      </ul>
+
+    <% } %>
+      <% } else { %>
+        <%=response='No messages'%>
+        <%  }  %>
+    </div>
+</div>

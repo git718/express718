@@ -1,0 +1,38 @@
+#body {
+  background-color: #edf4fa;
+  color: #5c5c8a;
+}
+
+#alink {
+  color: #5c5c8a;
+}
+
+#flashing {
+  color: #ff4d94;
+}
+
+img {
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+}
+
+#active {
+  color: #b4b4bd;
+}
+
+.profile_image {
+  height: 200px;
+  width: 400px;
+  border: #5c5c8a;
+}
+
+@media (max-width: 983px) {
+  .responsive {
+    flex-direction: column;
+  }
+  #news {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
