@@ -6,9 +6,9 @@ exports.addImage = async (req, res) => {
       let fileName = `${Math.random() * 10000000000000000}${path.extname(
         req.files.image.name
       )}`;
-      req.files.image.mv("public/images/" + fileName);
+      req.files.image.mv("public/uploads/" + fileName);
 
-      let imagePath = `images/${fileName}`;
+      let imagePath = `uploads/${fileName}`;
       await db.query("UPDATE users SET image = $1 WHERE name = $2", [
         imagePath,
         user.username,
