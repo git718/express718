@@ -1,6 +1,6 @@
 exports.login = async (req, res) => {
   let name = req.body.name.toLowerCase();
-  const regex = /[\[\]`:.,><()'"?!-=*&%#@\/{}|~;]/;
+  const regex = /[\[\]`:.,><()'"?!-=*&%#@\/{}|~;\\]/;
   if (regex.test(name)) {
     return res.render("signin", {
       active: "signin",
