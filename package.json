@@ -18,6 +18,7 @@
     "express": "^4.18.2",
     "express-fileupload": "^1.4.3",
     "express-jwt": "^8.4.1",
+    "helmet": "^7.1.0",
     "javascript-binary-converter": "^1.0.2",
     "jsonwebtoken": "^9.0.0",
     "moment": "^2.29.4",
