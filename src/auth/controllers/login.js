@@ -10,6 +10,7 @@ exports.login = async (req, res) => {
       yourBio: "",
       })
   }
+  
   const savedHash = await db.query("SELECT pass FROM users WHERE name = $1", [
     name,
   ]);
