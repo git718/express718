@@ -2,7 +2,7 @@ exports.login = async (req, res) => {
   let name = req.body.name.toLowerCase();
   const regex = /[\[\]`:.,><()'"?!-=*&%#@\/{}|~;]/;
   if (regex.test(name)) {
-    res.render("signin", {
+    return res.render("signin", {
       active: "signin",
       response: `Ник должен включать только буквы и числа`,
       token: "",
