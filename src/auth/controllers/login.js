@@ -15,7 +15,7 @@ exports.login = async (req, res) => {
         if (!result) {
           return res.render("signin", {
             active: "signin",
-            response: `User ${name} exists but the password is wrong`,
+            response: `Имя пользователя ${name} существует в базе данных, но пароль неверен`,
             token: "",
             user: "",
             yourBio: "",
@@ -37,7 +37,7 @@ exports.login = async (req, res) => {
   } else {
     res.render("signin", {
       active: "signin",
-      response: `You are not registered. Go to Signup`,
+      response: `Пользователь не зарегистрирован, перейдите на Зарегистрироваться`,
       token: "",
       user: "",
       yourBio: "",

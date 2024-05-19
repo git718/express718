@@ -8,7 +8,7 @@ exports.insertposts = async (req, res) => {
     ]);
     res.redirect("blog");
   } else {
-    response = "You need to be logged in to post";
+    response = "Нужно зарегистрироваться, чтобы оставлять посты";
     return res.render("blog", {
       active: "blog",
       response: response,

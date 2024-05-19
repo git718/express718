@@ -11,7 +11,7 @@ exports.register = async (req, res) => {
   if (savedHash[0]) {
     res.render("signup", {
       active: "signup",
-      response: "Username is not available",
+      response: "Имя пользователя уже занято",
       token: "",
       user: "",
     });

@@ -28,7 +28,7 @@ exports.sendPrivMessage = async (req, res) => {
       res.render("user_profile", {
         active: "",
         token: token,
-        response: "empty message",
+        response: "Пустое сообщение",
         user: user.username,
         data: dataObject,
       });

@@ -29,7 +29,7 @@ exports.signin = async (req, res) => {
   } else {
     res.render("signin", {
       active: "signin",
-      response: "Sign in to post and send messages",
+      response: "Залогиньтесь, чтобы оставлять посты и писать личные сообщения",
       token: "",
     });
   }
