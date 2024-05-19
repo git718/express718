@@ -6,6 +6,7 @@ const httpsPort = process.env.port || 443;
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
+const helmet = require('helmet');
 
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/express718.ru/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/express718.ru/cert.pem', 'utf8');
@@ -44,6 +45,7 @@ app.use(blogRoutes);
 app.use(authRoutes);
 app.use(contactRoute);
 app.use(commentsRoutes);
+app.use(helmet());
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.json());
 app.use(fileUpload());
