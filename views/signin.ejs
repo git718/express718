@@ -18,17 +18,20 @@
     <% if (!token) { %>
       <h1>Главная</h1>
       <div>
+        
         Данный ресурс предназначен для общения и знакомств. Вы можете писать свои объявления в разделе
-        Посты, писать комментарии, а также в личные сообщения. Форум не модерируется!
+        Посты, писать комментарии, а также в личные сообщения. Для регистрации не нужен емейл и 
+        не нужен номер телефона. Только ник и пароль. Регистрация за одну секунду ! Форум не модерируется!
+        
       </div>
         <div class="signinForm">
           <form action="/signin" method="POST">
               <div class="mb-3">
-                  <label for="user" class="form-label">Username:</label>
+                  <label for="user" class="form-label">Ник:</label>
                   <input name="name" type="text" class="form-control" id="user" style="text-transform: lowercase;" required/>
               </div>
                 <div class="mb-3">
-                  <label for="pass" class="form-label">Password:</label>
+                  <label for="pass" class="form-label">Пароль:</label>
                   <input type="password" name="pass" class="form-control" id="pass" style="text-transform: lowercase;" required/>
                 </div>
               <div class="mb-3">
