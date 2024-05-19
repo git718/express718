@@ -34,7 +34,7 @@
       </form>
       <% if (response) { %>
       <div class="alert alert-danger" role="alert">
-        <a href="/" class="alert-link">Signin</a> <%= response %>
+        <a href="/" class="alert-link">Логин</a> <%= response %>
       </div>
       <% } %>
       <div class="list-group">
@@ -47,7 +47,7 @@
           >
             <div style="display: flex; justify-content: space-between">
               <p class="fs-6 fw-lighter">
-                <%=i.username.toUpperCase()%> POSTED:
+                <%=i.username.toUpperCase()%> написал:
               </p>
               <a style="text-decoration: none" href="/user_profile/<%=i.id%>">
                 <div style="display: flex; flex-direction: column">
@@ -101,7 +101,7 @@
                     margin-top: 10px;
                   "
                 >
-                  <%=j.username.toUpperCase()%> REPLIED:
+                  <%=j.username.toUpperCase()%> ответил:
                   <p style="margin-top: 10px">
                     <a href="/blog/<%=j.id%>" style="text-decoration: none">
                       >> <%= j.text%>
@@ -139,7 +139,7 @@
                   --bs-btn-font-size: 0.75rem;
                 "
               >
-                Reply
+                Ответить
               </button>
             </form>
           </li>

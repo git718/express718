@@ -18,11 +18,11 @@
     include('./partials/logoutbar.ejs') %> <% } %>
     <div class="container">
       <% if (!token) { %>
-      <h1>Signup Page</h1>
+      <h1>Зарегистрироваться</h1>
       <div class="signinForm">
         <form action="/signup" method="POST">
           <div class="mb-3">
-            <label for="user" class="form-label">Username:</label>
+            <label for="user" class="form-label">Ник:</label>
             <input
               name="name"
               type="text"
@@ -33,7 +33,7 @@
             />
           </div>
           <div class="mb-3">
-            <label for="pass" class="form-label">Password:</label>
+            <label for="pass" class="form-label">Пароль:</label>
             <input
               type="password"
               name="pass"
