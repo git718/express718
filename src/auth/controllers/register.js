@@ -1,6 +1,6 @@
 exports.register = async (req, res) => {
   let name = req.body.name.toLowerCase();
-  const regex = /[]\/\\\`:.,><()\'\"?!-=*&^%$#@/;
+  const regex = /[\[\]`:.,><()'"?!-=*&%#@\/{}|~;]/;
   if (regex.test(name)) {
     res.render("signup", {
       active: "signup",

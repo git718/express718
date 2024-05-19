@@ -1,5 +1,15 @@
 exports.login = async (req, res) => {
   let name = req.body.name.toLowerCase();
+  const regex = /[\[\]`:.,><()'"?!-=*&%#@\/{}|~;]/;
+  if (regex.test(name)) {
+    res.render("signin", {
+      active: "signin",
+      response: `Ник должен включать только буквы и числа`,
+      token: "",
+      user: "",
+      yourBio: "",
+      })
+  }
   const savedHash = await db.query("SELECT pass FROM users WHERE name = $1", [
     name,
   ]);
