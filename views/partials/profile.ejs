@@ -4,11 +4,11 @@
     <div class="card-body">
       <div>
         <div  style="margin-bottom: 2px;">
-              <img  class="card-img-top" src="<%=image%>" alt="user photo">
+              <img  class="card-img-top" src="<%=image%>" alt="аватар">
         </div>
         <form action="/addimage" method="POST" enctype="multipart/form-data">
           <input type="file" name="image" id="image" style="width: 200px; margin-bottom: 2px;" >
-          <input type="submit" value="Upload">
+          <input type="submit" value="Загрузить">
         </form>
       </div>
       <p>
@@ -17,8 +17,8 @@
       <p class="card-text">О себе: <%=yourBio%></p>
         <p>
           <form action="/addbio" method="POST">
-            <textarea name="bio"  cols="20" rows="2" placeholder="Update bio"></textarea>
-            <input type="submit" value="Update" />
+            <textarea name="bio"  cols="20" rows="2" placeholder="инфо о себе"></textarea>
+            <input type="submit" value="Обновить" />
           </form>
         </p>
     </div>
