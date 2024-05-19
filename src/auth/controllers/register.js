@@ -1,5 +1,13 @@
 exports.register = async (req, res) => {
   let name = req.body.name.toLowerCase();
+  if (name.includes(["[]\/\\\`:.,><()\'\"?!-=*&^%$#@"])) {
+    res.render("signup", {
+      active: "signup",
+      response: "Ник должен состоять только из букв и чисел",
+      token: "",
+      user: "",
+      })
+  }
   const savedHash = await db.query("SELECT pass FROM users WHERE name = $1", [
     name,
   ]);
