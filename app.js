@@ -36,6 +36,7 @@ const commentsRoutes = require("./src/comments/comments.routes");
 const fileUpload = require("express-fileupload");
 
 app.set("view engine", "ejs");
+
 app.use(cookieParser("rwervterbj353jhbdkfhv"));
 app.use(express.static(__dirname, { dotfiles: 'allow' } ));
 app.use(indexGetRoutes);
