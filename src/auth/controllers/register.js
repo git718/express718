@@ -1,7 +1,7 @@
 exports.register = async (req, res) => {
   let name = req.body.name.toLowerCase();
-  const regex = /[a-zA-Z0-9]+/;
-  if (!regex.test(name)) {
+  const regex = /[^a-zA-Z0-9]/;
+  if (regex.test(name)) {
    return res.render("signup", {
       active: "signup",
       response: "Ник должен состоять только из букв и чисел",
