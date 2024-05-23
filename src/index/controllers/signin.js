@@ -13,8 +13,9 @@ exports.signin = async (req, res) => {
       [user.username]
     );
     const userData = await db.query("SELECT * FROM users WHERE name = $1", [
-      req.query.userData.toLowerCase(),
+      req.query.userData? req.query.userData.toLowerCase():null,
     ]);
+
 
     res.render("signin", {
       active: "signin",
