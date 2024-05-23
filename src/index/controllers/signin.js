@@ -13,7 +13,7 @@ exports.signin = async (req, res) => {
       [user.username]
     );
     const userData = await db.query("SELECT * FROM users WHERE name = $1", [
-      req.query.userData,
+      req.query.userData.toLowerCase(),
     ]);
 
     res.render("signin", {
