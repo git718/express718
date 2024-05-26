@@ -8,9 +8,9 @@ const http = require('http');
 const https = require('https');
 const helmet = require('helmet');
 
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/express718.ru/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/express718.ru/cert.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/express718.ru/chain.pem', 'utf8');
+const privateKey = fs.readFileSync('/home/user718/letsencrypt/live/express718.ru/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/home/user718/letsencrypt/live/express718.ru/cert.pem', 'utf8');
+const ca = fs.readFileSync('/home/user718/letsencrypt/live/express718.ru/chain.pem', 'utf8');
 
 const credentials = {
 	key: privateKey,
