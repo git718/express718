@@ -8,9 +8,9 @@ const http = require('http');
 const https = require('https');
 const helmet = require('helmet');
 
-const privateKey = fs.readFileSync('/home/user718/letsencrypt/live/express718.ru/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/home/user718/letsencrypt/live/express718.ru/cert.pem', 'utf8');
-const ca = fs.readFileSync('/home/user718/letsencrypt/live/express718.ru/chain.pem', 'utf8');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/bro718.ru/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/bro718.ru/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/bro718.ru/chain.pem', 'utf8');
 
 const credentials = {
 	key: privateKey,
@@ -21,7 +21,7 @@ const credentials = {
 global.bodyParser = require("body-parser");
 global.urlencodedParser = bodyParser.urlencoded({ extended: false });
 global.pgp = require("pg-promise")();
-global.db = pgp("postgres://postgres:postgres@localhost:5432/db1");
+global.db = pgp("postgres://postgres:postgres@localhost:5432/app_database");
 global.path = require("path");
 global.bcrypt = require("bcrypt");
 global.jwt = require("jsonwebtoken");
