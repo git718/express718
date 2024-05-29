@@ -11,7 +11,15 @@ exports.sendPrivMessage = async (req, res) => {
       image: image[0].image,
     };
     if (req.body.private) {
-      try {
+      if (req.body.private.length > 150) {
+        res.render("user_profile", {
+          active: "",
+          token: token,
+          response: "сообщение слишком длинное (не более 150 знаков)",
+          user: user.username,
+          data: dataObject,
+        });
+      }
         await db.query(
           "INSERT INTO private(to_user, from_user, content) VALUES ($1, $2, $3)",
           [req.body.to_user, user.username, req.body.private]
@@ -25,15 +33,7 @@ exports.sendPrivMessage = async (req, res) => {
           user: user.username,
           data: dataObject,
         });
-      } catch {
-        res.render("user_profile", {
-          active: "",
-          token: token,
-          response: "сообщение слишком длинное",
-          user: user.username,
-          data: dataObject,
-        });
-      }
+      
     } else {
       res.render("user_profile", {
         active: "",
