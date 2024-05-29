@@ -23,7 +23,7 @@
                         <input type="hidden" name="content"  value="<%= i.content %>">
                         <input type="text" class="form-control" id="private" name="private">
                         <button class="btn btn-outline-secondary"
-                        style="--bs-btn-padding-y: .05rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Reply</button>
+                        style="--bs-btn-padding-y: .05rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">ответить</button>
                     </form>
                 </div>
                     <a href="/private/<%=i.id%>">
@@ -35,7 +35,7 @@
 
     <% } %>
       <% } else { %>
-        <%=response='No messages'%>
+        <%=response='нет сообщений'%>
         <%  }  %>
     </div>
 </div>
