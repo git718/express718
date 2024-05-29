@@ -12,7 +12,7 @@ exports.sendPrivMessage = async (req, res) => {
     };
     if (req.body.private) {
       if (req.body.private.length > 150) {
-        res.render("user_profile", {
+        return res.render("user_profile", {
           active: "",
           token: token,
           response: "сообщение слишком длинное (не более 150 знаков)",
