@@ -12,13 +12,7 @@ exports.sendPrivMessage = async (req, res) => {
     };
     if (req.body.private) {
       if (req.body.private.length > 150) {
-        return res.render("user_profile", {
-          active: "",
-          token: token,
-          response: "сообщение слишком длинное (не более 150 знаков)",
-          user: user.username,
-          data: dataObject,
-        });
+        req.body.private = req.body.private.slice(0, 150)
       }
         await db.query(
           "INSERT INTO private(to_user, from_user, content) VALUES ($1, $2, $3)",
