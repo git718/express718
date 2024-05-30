@@ -2,8 +2,8 @@ exports.mailer = async (req, res) => {
     if (req.body.email.length > 80) {
       req.body.email = req.body.email.slice(0, 80)
     }
-    if (req.body.textarea.length > 250) {
-      req.body.textarea = req.body.textarea.slice(0, 250)
+    if (req.body.textarea.length > 2000) {
+      req.body.textarea = req.body.textarea.slice(0, 2000)
     }
   await db.query("INSERT INTO messages(email, text) VALUES ($1, $2)", [
     req.body.email,
