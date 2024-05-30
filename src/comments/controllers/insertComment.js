@@ -3,7 +3,7 @@ exports.insertComment = async (req, res) => {
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
     if (req.body.child_comment) {
-      if (req.body.child_comment > 150) {
+      if (req.body.child_comment.length > 150) {
         req.body.child_comment = req.body.child_comment.slice(0, 150)
       }
       await db.query(
