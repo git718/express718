@@ -1,4 +1,5 @@
 exports.mailer = async (req, res) => {
+  console.log(req.body.email, req.body.textarea)
   if (req.body.email!="" && 
   req.body.textarea!="" && 
   req.body.email.includes("@")) {
