@@ -14,13 +14,13 @@ exports.mailer = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
-    res.render("form", { 
+    return res.render("form", { 
       active: "", 
       token: token, 
       user: user.username 
     });
   } else {
-    res.render("form", { 
+    return res.render("form", { 
       active: "",
       token: "", 
       user: "" });
@@ -30,14 +30,14 @@ exports.mailer = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
-    res.render("contacts", { 
+    return res.render("contacts", { 
       active: "contacts", 
       message:"message not sent",
       token: token, 
       user: user.username 
     });
   } else {
-    res.render("contacts", { 
+    return res.render("contacts", { 
       active: "contacts",
       token: "", 
       message:"message not sent",
