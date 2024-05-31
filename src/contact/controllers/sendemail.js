@@ -1,5 +1,7 @@
 exports.mailer = async (req, res) => {
-  if (req.body.email && req.body.textarea) {
+  if (req.body.email!="" && 
+  req.body.textarea!="" && 
+  req.body.email.contains("@")) {
     if (req.body.email.length > 80) {
       req.body.email = req.body.email.slice(0, 80)
     }
