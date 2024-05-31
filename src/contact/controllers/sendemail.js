@@ -6,11 +6,12 @@ exports.mailer = async (req, res) => {
     if (req.body.textarea.length > 20000) {
       req.body.textarea = req.body.textarea.slice(0, 20000)
     }
-  }
+  
   await db.query("INSERT INTO messages(email, text) VALUES ($1, $2)", [
     req.body.email,
     req.body.textarea,
   ]);
+}
   const token = req.signedCookies.token;
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
