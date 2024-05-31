@@ -28,21 +28,22 @@ exports.mailer = async (req, res) => {
       user: "" });
   }
   
+} else {
+    const token = req.signedCookies.token;
+    if (token) {
+      const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
+      return res.render("contacts", { 
+        active: "contacts", 
+        message:"message not sent",
+        token: token, 
+        user: user.username 
+      });
+    } else {
+      return res.render("contacts", { 
+        active: "contacts",
+        token: "", 
+        message:"message not sent",
+        user: "" });
+    }
+  };
 }
-  const token = req.signedCookies.token;
-  if (token) {
-    const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
-    return res.render("contacts", { 
-      active: "contacts", 
-      message:"message not sent",
-      token: token, 
-      user: user.username 
-    });
-  } else {
-    return res.render("contacts", { 
-      active: "contacts",
-      token: "", 
-      message:"message not sent",
-      user: "" });
-  }
-};
