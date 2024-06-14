@@ -61,7 +61,7 @@
                 </div>
               </a>
             </div>
-            <p><%= i.content%></p>
+            <p style="word-wrap: break-word;"><%= i.content%></p>
             <div style="display: flex; justify-content: end">
               <% if (i.username === user) { %>
               <a href="/blog/<%=i.id%>">
@@ -102,9 +102,9 @@
                   "
                 >
                   <%=j.username.toUpperCase()%> ответил:
-                  <p style="margin-top: 10px">
+                  <p style="margin-top: 10px; word-wrap: break-word;">
                     <a href="/blog/<%=j.id%>" style="text-decoration: none">
-                      >> <%= j.text%>
+                      <%= j.text%>
                     </a>
                   </p>
                 </div>
