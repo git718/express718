@@ -11,7 +11,7 @@ exports.insertposts = async (req, res) => {
     ]);
     res.redirect("blog");
   } else {
-    response = "Нужно зарегистрироваться, чтобы оставлять посты";
+    response = "Войдите в свой аккаунт или зарегистрируйте пользователя.";
     return res.render("blog", {
       active: "blog",
       response: response,
