@@ -34,7 +34,7 @@ const contactRoute = require("./src/contact/contact.routes");
 const messagesRoutes = require("./src/messages/private.routes");
 const commentsRoutes = require("./src/comments/comments.routes");
 const fileUpload = require("express-fileupload");
-
+app.enable('trust proxy');
 app.set("view engine", "ejs");
 
 app.use(cookieParser("rwervterbj353jhbdkfhv"));
@@ -53,7 +53,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use((req, res) => {
   res.status(404).send("404 Page does not exist");
 });
+app.use(function (request, response, next) {
+  if (!request.secure) {
+    return response.redirect('https://' + request.headers.host + request.url);
+  }
 
+  next();
+});
 
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
