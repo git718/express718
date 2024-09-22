@@ -9,8 +9,8 @@ exports.addImage = async (req, res) => {
         req.files.image.name
       )}`;
       sharp(req.files.image).resize(600,600)
-      .jpeg({quality : 80}).toFile(req.files.image);
-      req.files.image.mv("public/uploads/" + fileName);
+      .jpeg({quality : 80}).toFile("public/uploads/" + fileName);
+      //req.files.image.mv("public/uploads/" + fileName);
 
       let imagePath = `uploads/${fileName}`;
       await db.query("UPDATE users SET image = $1 WHERE name = $2", [
