@@ -1,3 +1,5 @@
+const sharp = require("sharp");
+
 exports.addImage = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
@@ -6,6 +8,8 @@ exports.addImage = async (req, res) => {
       let fileName = `${Math.random() * 10000000000000000}${path.extname(
         req.files.image.name
       )}`;
+      sharp(req.files.image).resize(600,600)
+      .jpeg({quality : 80}).toFile(req.files.image);
       req.files.image.mv("public/uploads/" + fileName);
 
       let imagePath = `uploads/${fileName}`;
