@@ -18,7 +18,7 @@ exports.addImage = async (req, res) => {
       req.query.userData? req.query.userData.toLowerCase():null,
     ]);
     if (req.files) {
-      let extensions = ["JPEG", "jpeg", "GIF", "gif", "PNG", "png", ".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png"]
+      let extensions = ["JPEG", "jpeg", "GIF", "gif", "PNG", "png", ".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", "JPG", ".JPG", ".jpg", "jpg"]
       for (let i of extensions) {
           if (path.extname(req.files.image.name) == i) {
           
@@ -40,7 +40,7 @@ exports.addImage = async (req, res) => {
         } else {
           res.render("signin", {
             active: "signin",
-            response: "Please use image format PNG, JPEG, or GIF.",
+            response: "Please use image format PNG, JPEG,JPG or GIF.",
             token: token,
             yourBio: bio[0].bio,
             image: userImage[0].image,
