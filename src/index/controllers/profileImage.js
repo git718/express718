@@ -28,7 +28,7 @@ exports.addImage = async (req, res) => {
           res.render("signin", {
             active: "signin",
             response: "Please use image format PNG, JPEG, or GIF.",
-            token: "",
+            token: token,
           });
         }
       } 
