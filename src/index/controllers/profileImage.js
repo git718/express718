@@ -29,6 +29,7 @@ exports.addImage = async (req, res) => {
             active: "signin",
             response: "Please use image format PNG, JPEG, or GIF.",
             token: token,
+            user: user.username,
           });
         }
       } 
