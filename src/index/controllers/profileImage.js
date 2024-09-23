@@ -4,6 +4,12 @@ exports.addImage = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
+    const userImage = await db.query("SELECT image FROM users WHERE name=$1", [
+      user.username,
+    ]);
+    const bio = await db.query("SELECT bio FROM users WHERE name = $1", [
+      user.username,
+    ]);
     if (req.files) {
       let extensions = ["JPEG", "jpeg", "GIF", "gif", "PNG", "png", ".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png"]
       for (let i of extensions) {
@@ -29,6 +35,8 @@ exports.addImage = async (req, res) => {
             active: "signin",
             response: "Please use image format PNG, JPEG, or GIF.",
             token: token,
+            yourBio: bio[0].bio,
+            image: userImage[0].image,
             user: user.username,
           });
         }
