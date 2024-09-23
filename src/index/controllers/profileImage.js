@@ -36,9 +36,9 @@ exports.addImage = async (req, res) => {
             imagePath,
             user.username,
           ]);
-          res.redirect("signin");
+          return res.redirect("signin");
         } else {
-          res.render("signin", {
+          return res.render("signin", {
             active: "signin",
             response: "Please use image format PNG, JPEG,JPG or GIF.",
             token: token,
