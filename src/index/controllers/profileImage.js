@@ -10,7 +10,7 @@ exports.addImage = async (req, res) => {
       )}`;
       await req.files.image.mv("public/uploads/" + fileName);
       await sharp("./public/uploads/" + fileName).resize(600,600)
-      .jpeg({quality : 80})
+      .toFormat('jpeg')
       .rotate()
       .toFile("./public/uploads/" + "resized_" + fileName);
 
