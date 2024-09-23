@@ -10,6 +10,13 @@ exports.addImage = async (req, res) => {
     const bio = await db.query("SELECT bio FROM users WHERE name = $1", [
       user.username,
     ]);
+    const data = await db.query(
+      "SELECT * FROM private WHERE to_user = $1 ORDER by id DESC",
+      [user.username]
+    );
+    const userData = await db.query("SELECT * FROM users WHERE name = $1", [
+      req.query.userData? req.query.userData.toLowerCase():null,
+    ]);
     if (req.files) {
       let extensions = ["JPEG", "jpeg", "GIF", "gif", "PNG", "png", ".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png"]
       for (let i of extensions) {
@@ -38,6 +45,8 @@ exports.addImage = async (req, res) => {
             yourBio: bio[0].bio,
             image: userImage[0].image,
             user: user.username,
+            data: data,
+            userData: userData[0],
           });
         }
       } 
