@@ -18,10 +18,9 @@ exports.addImage = async (req, res) => {
       req.query.userData? req.query.userData.toLowerCase():null,
     ]);
     if (req.files) {
-      let extensions = ["JPEG", "jpeg", "GIF", "gif", "PNG", "png", ".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", "JPG", ".JPG", ".jpg", "jpg"]
+      let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg"]
       for (let i of extensions) {
-          if (path.extname(req.files.image.name) == i) {
-          
+          if (extensions.includes(path.extname(req.files.image.name))) {
           let fileName = `${Math.random() * 10000000000000000}${path.extname(
             req.files.image.name
           )}`;
