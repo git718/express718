@@ -16,7 +16,7 @@ exports.signin = async (req, res) => {
       const userData = await db.query("SELECT * FROM users WHERE name LIKE concat(\'%\', $1, \'%\')", [
         req.query.userData? req.query.userData.toLowerCase():null,
       ]);
-    }
+    } else {req.query.userData = null}
 
 
     res.render("signin", {
