@@ -12,9 +12,11 @@ exports.signin = async (req, res) => {
       "SELECT * FROM private WHERE to_user = $1 ORDER by id DESC",
       [user.username]
     );
-    const userData = await db.query("SELECT * FROM users WHERE name LIKE concat(\'%\', $1, \'%\')", [
-      req.query.userData? req.query.userData.toLowerCase():null,
-    ]);
+    if (req.query.userData != '') {
+      const userData = await db.query("SELECT * FROM users WHERE name LIKE concat(\'%\', $1, \'%\')", [
+        req.query.userData? req.query.userData.toLowerCase():null,
+      ]);
+    }
 
 
     res.render("signin", {
@@ -25,7 +27,7 @@ exports.signin = async (req, res) => {
       yourBio: bio[0].bio,
       image: userImage[0].image,
       data: data,
-      userData: userData[0],
+      userData: userData,
     });
   } else {
     res.render("signin", {

@@ -3,20 +3,23 @@
 <% if (!userData) {%>
 <div></div>
 <%} else {%>
+    <% for (let i of userData) {%>
 <div> 
     <h2>Профиль пользователя</h2>
     <div class="card" style="width: 18rem">
     <div class="card-body">
         <div>
         <div  style="margin-bottom: 2px;">
-                <img  class="card-img-top" src="<%= userData.image%>" alt="фото">
+                <img  class="card-img-top" src="<%= i.image%>" alt="фото">
         </div>
         </div>
         <p>
-        <h4 class="card-title">Ник: <%= userData.name%></h4>
+        <h4 class="card-title"><%= i.name%></h4>
         </p>
-        <p class="card-text">О себе: <%= userData.bio%></p>
+        <p class="card-text"><%= i.bio%></p>
     </div>
     </div>
 </div>
 <%}%>
+<%}%>
+
