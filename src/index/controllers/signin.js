@@ -14,9 +14,14 @@ exports.signin = async (req, res) => {
     );
     let userData = ''
     if (!req.query.userData == '' || !req.query.userData == ' ') {
-      userData = await db.query("SELECT * FROM users WHERE name LIKE concat(\'%\', $1, \'%\')", [
+      userData = await db.query("SELECT * FROM users WHERE name = $1", [
         req.query.userData? req.query.userData.toLowerCase():null,
       ]);
+      if (!userData[0]) {
+        userData = await db.query("SELECT * FROM users WHERE name LIKE concat(\'%\', $1, \'%\')", [
+          req.query.userData? req.query.userData.toLowerCase():null,
+        ]);
+      }
     }
 
     res.render("signin", {
