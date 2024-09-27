@@ -15,16 +15,17 @@
         <h4 class="card-title"><%= i.name%></h4>
         </p>
         <p class="card-text"><%= i.bio%></p>
+        <form action="/sendprivate" method="POST">
+            <div class="mb-3">
+                <input type="hidden" name="to_user"  value="<%= i.name %>">
+                <input type="hidden" name="bio"  value="<%= i.bio %>">
+                <label for="private" class="form-label">Отправить личное сообщение:</label>
+                <input style="width: 228px;" type="text" class="form-control" id="private" name="private">
+                <input style="margin-top: 5px;" type="submit" value="Отправить">
+              </div>
+        </form>
     </div>
-    <form action="/sendprivate" method="POST">
-        <div class="mb-3">
-            <input type="hidden" name="to_user"  value="<%= i.name %>">
-            <input type="hidden" name="bio"  value="<%= i.bio %>">
-            <label for="private" class="form-label">Отправить личное сообщение:</label>
-            <input style="width: 228px;" type="text" class="form-control" id="private" name="private">
-            <input style="margin-top: 5px;" type="submit" value="Отправить">
-          </div>
-    </form>
+
     </div>
 </div>
 <%}%>
