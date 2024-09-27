@@ -1,8 +1,6 @@
-
-
-<% if (!userData) {%>
-<div></div>
-<%} else {%>
+<% if (!userData || userData == '' || userData == ' ') {%>
+        <div></div>
+    <%} else {%>
     <% for (let i of userData) {%>
 <div> 
     <h2>Профиль пользователя</h2>
