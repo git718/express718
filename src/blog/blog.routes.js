@@ -10,4 +10,6 @@ router.get("/blog/:id", deleteposts.deleteposts);
 
 router.post("/post", urlencodedParser, insertposts.insertposts);
 
+router.post("/addimagepost", fileUpload(), insertposts.insertposts);
+
 module.exports = router;
