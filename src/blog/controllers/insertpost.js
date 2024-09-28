@@ -10,6 +10,33 @@ exports.insertposts = async (req, res) => {
       user.username,
     ]);
     res.redirect("blog");
+
+
+    if (req.files) {
+      let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg"]
+      for (let i of extensions) {
+          if (extensions.includes(path.extname(req.files.image.name))) {
+          let fileName = `${Math.random() * 10000000000000000}${path.extname(
+            req.files.image.name
+          )}`;
+          await req.files.image.mv("public/uploads/" + fileName);
+          await sharp("./public/uploads/" + fileName).resize(600,600)
+          .toFormat('jpeg')
+          .rotate()
+          .toFile("./public/uploads/" + "resized_" + fileName);
+        
+          let imagePath = `uploads/${"resized_" + fileName}`;
+          await db.query("INSERT INTO posts(image) VALUES $1", [
+            imagePath,
+          ]);
+          return res.redirect("blog");
+        } else {
+          return res.redirect("blog");
+        }
+      } 
+    }
+
+
   } else {
     response = "Войдите в свой аккаунт или зарегистрируйте пользователя.";
     return res.render("blog", {
