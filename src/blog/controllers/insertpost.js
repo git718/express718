@@ -9,7 +9,7 @@ exports.insertposts = async (req, res) => {
       req.body.post,
       user.username,
     ]);
-    res.redirect("blog");
+    // res.redirect("blog");
 
 
     if (req.files) {
