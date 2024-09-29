@@ -25,7 +25,7 @@ exports.insertposts = async (req, res) => {
           .toFile("./public/uploads/" + "resized_" + fileName);
         
           let imagePath = `uploads/${"resized_" + fileName}`;
-          await db.query("INSERT INTO posts(image) VALUES $1", [
+          await db.query("INSERT INTO posts(uploads) VALUES $1", [
             imagePath,
           ]);
           return res.redirect("blog");
