@@ -9,7 +9,6 @@ exports.insertposts = async (req, res) => {
       req.body.post,
       user.username,
     ]);
-    // res.redirect("blog");
 
 
     if (req.files) {
@@ -30,11 +29,11 @@ exports.insertposts = async (req, res) => {
             imagePath,
           ]);
           return res.redirect("blog");
-        } else {
-          return res.redirect("blog");
-        }
+        } else { return res.redirect("blog")}
       } 
     }
+
+  return res.redirect("blog");
 
 
   } else {
