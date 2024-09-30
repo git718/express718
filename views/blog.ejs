@@ -17,7 +17,7 @@
     include('./partials/loginbar.ejs')%> <%} else { %>
     <%-include('./partials/logoutbar.ejs')%><% } %>
     <div class="container">
-      <form action="/post" method="POST">
+      <form action="/post" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="text1" class="form-label">TEKCT:</label>
           <textarea
