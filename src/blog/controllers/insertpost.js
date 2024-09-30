@@ -2,15 +2,15 @@ exports.insertposts = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
-    if (req.body.post.length > 20000) {
-      req.body.post = req.body.post.slice(0, 20000)
+  if (req.body.post != 'undefined') {
+          if (req.body.post?.length > 20000) 
+          req.body.post = req.body.post.slice(0, 20000)
+        }
+        await db.query("INSERT INTO posts(content, username) VALUES ($1, $2)", [
+          req.body.post,
+          user.username,
+        ]);
     }
-    await db.query("INSERT INTO posts(content, username) VALUES ($1, $2)", [
-      req.body.post,
-      user.username,
-    ]);
-
-
     if (req.files) {
       console.log(req.files.image);
       
