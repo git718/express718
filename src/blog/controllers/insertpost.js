@@ -35,7 +35,7 @@ exports.insertposts = async (req, res) => {
         } else { return res.redirect("blog")}
       } 
     }
-    const data = formData.getAll("post", "image")
+    const data = formData.get("post")
     console.log(data);
     
   return res.redirect("blog");
