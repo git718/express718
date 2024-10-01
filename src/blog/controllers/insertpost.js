@@ -3,7 +3,6 @@ exports.insertposts = async (req, res) => {
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
     const formData = new FormData();
-    const data = formData.getAll("post", "image")
   if (req.body.post != 'undefined') {
           if (req.body.post?.length > 20000) {
           req.body.post = req.body.post.slice(0, 20000)
@@ -36,6 +35,7 @@ exports.insertposts = async (req, res) => {
         } else { return res.redirect("blog")}
       } 
     }
+    const data = formData.getAll("post", "image")
     console.log(data);
     
   return res.redirect("blog");
