@@ -3,7 +3,7 @@ exports.insertposts = async (req, res) => {
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
     const formData = new FormData();
-    const data = formData.get()
+    const data = formData.getAll()
   if (req.body.post != 'undefined') {
           if (req.body.post?.length > 20000) {
           req.body.post = req.body.post.slice(0, 20000)
