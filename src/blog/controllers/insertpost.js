@@ -2,7 +2,7 @@ exports.insertposts = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
-    const formData = new FormData('form');
+    const formData = new FormData();
   if (req.body.post != 'undefined') {
           if (req.body.post?.length > 20000) {
           req.body.post = req.body.post.slice(0, 20000)
@@ -36,7 +36,10 @@ exports.insertposts = async (req, res) => {
       } 
     }
     const data = formData.get("post")
+    const data2 = req.form
     console.log(data);
+    console.log(data2);
+    
     
   return res.redirect("blog");
 
