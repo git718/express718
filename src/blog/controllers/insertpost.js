@@ -12,7 +12,6 @@ exports.insertposts = async (req, res) => {
         ]);
       }
     if (req.files) {
-      console.log(req.files.image);
       
       let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg"]
       for (let i of extensions) {
