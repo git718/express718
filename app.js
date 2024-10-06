@@ -7,6 +7,7 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const helmet = require('helmet');
+const formidableMiddleware = require('express-formidable');
 
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/bro718.ru/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/bro718.ru/cert.pem', 'utf8');
@@ -49,6 +50,7 @@ app.use(helmet());
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.json());
 app.use(fileUpload());
+app.use(formidableMiddleware());
 app.use(express.urlencoded({ extended: false }));
 app.use((req, res) => {
   res.status(404).send("404 Page does not exist");

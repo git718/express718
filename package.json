@@ -17,6 +17,7 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-fileupload": "^1.4.3",
+    "express-formidable": "^1.2.0",
     "express-jwt": "^8.4.1",
     "helmet": "^7.1.0",
     "javascript-binary-converter": "^1.0.2",
