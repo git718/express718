@@ -5,6 +5,8 @@ exports.insertposts = async (req, res) => {
 
    
     console.log(req.fields);
+    console.log(req.files);
+
     
     
   return res.redirect("blog");
