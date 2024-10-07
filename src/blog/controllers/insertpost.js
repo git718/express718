@@ -3,11 +3,8 @@ exports.insertposts = async (req, res) => {
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
 
-   
-    console.log(req.fields.post);
-    console.log(req.files.image.path);
-
-    if (req.fields.post != 'undefined') {
+  
+    if (req.fields?.post != 'undefined') {
       if (req.fields?.post?.length > 20000) {
       req.body.post = req.body.post.slice(0, 20000)
     }
@@ -16,7 +13,7 @@ exports.insertposts = async (req, res) => {
       user.username,
     ]);
   }
-if (req.files.image.name != "undefined") {
+if (req.files?.image?.name != "undefined") {
   
   let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg"]
   for (let i of extensions) {
