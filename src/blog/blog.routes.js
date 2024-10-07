@@ -9,10 +9,7 @@ router.get("/blog", urlencodedParser, getposts.getposts);
 
 router.get("/blog/:id", deleteposts.deleteposts);
 
-router.post("/post", insertposts.insertposts, (err) => {if (err) {console.log(err);
-} else {console.log('success');
-};
-});
+router.post("/post", insertposts.insertposts);
 
 
 module.exports = router;
