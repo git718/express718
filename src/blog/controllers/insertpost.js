@@ -2,6 +2,9 @@ exports.insertposts = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
+  console.log(req.fields);
+  console.log(req.files);
+  
   
     if (req.fields) {
       if (req.fields?.post?.length > 20000) {
