@@ -2,9 +2,8 @@ exports.insertposts = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
-
   
-    if (req.fields?.post != 'undefined') {
+    if (req.fields) {
       if (req.fields?.post?.length > 20000) {
       req.body.post = req.body.post.slice(0, 20000)
     }
@@ -13,7 +12,7 @@ exports.insertposts = async (req, res) => {
       user.username,
     ]);
   }
-if (req.files?.image?.name != "undefined") {
+if (req.files) {
   
   let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg"]
   for (let i of extensions) {
