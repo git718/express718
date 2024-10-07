@@ -4,10 +4,39 @@ exports.insertposts = async (req, res) => {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
 
    
-    console.log(req.fields);
-    console.log(req.files);
+    console.log(req.fields.post);
+    console.log(req.files.image.path);
 
+    if (req.fields.post != 'undefined') {
+      if (req.fields?.post?.length > 20000) {
+      req.body.post = req.body.post.slice(0, 20000)
+    }
+    await db.query("INSERT INTO posts(content, username) VALUES ($1, $2)", [
+      req.fields.post,
+      user.username,
+    ]);
+  }
+if (req.files.image.name != "undefined") {
+  
+  let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg"]
+  for (let i of extensions) {
+      if (extensions.includes(path.extname(req.files.image.name))) {
+      let fileName = `${Math.random() * 10000000000000000}${path.extname(
+        req.files.image.name
+      )}`;
+      await sharp(req.files.image.path).resize(600,600)
+      .toFormat('jpeg')
+      .rotate()
+      .toFile("./public/uploads/" + "resized_" + fileName);
     
+      let imagePath = `uploads/${"resized_" + fileName}`;
+      await db.query("INSERT INTO posts(uploads) VALUES $1", [
+        imagePath,
+      ]);
+      return res.redirect("blog");
+    } else { return res.redirect("blog")}
+  } 
+}
     
   return res.redirect("blog");
 
