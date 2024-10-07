@@ -9,7 +9,7 @@ router.get("/blog", urlencodedParser, getposts.getposts);
 
 router.get("/blog/:id", deleteposts.deleteposts);
 
-router.post("/post", insertposts.insertposts);
+router.post("/post",urlencodedParser, insertposts.insertposts);
 
 
 module.exports = router;
