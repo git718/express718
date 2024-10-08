@@ -26,8 +26,8 @@ if (req.files) {
       await sharp(req.files.image.path).resize(600,600)
       .toFile("./public/uploads/" + "resized_" + fileName);
     
-      let imagePath = "./public/uploads/resized_" + fileName;
-      await db.query("INSERT INTO posts(uploads) VALUES $1", [
+      let imagePath = "/uploads/resized_" + fileName;
+      await db.query("INSERT INTO posts(uploads) VALUES ($1)", [
         imagePath,
       ]);
       return res.redirect("blog");
