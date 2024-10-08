@@ -15,7 +15,9 @@ exports.insertposts = async (req, res) => {
       user.username,
     ]);
   }
+
 if (req.files) {
+  console.log(req.files.image.name);
   
   let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg"]
   for (let i of extensions) {
@@ -27,6 +29,8 @@ if (req.files) {
       .toFile("./public/uploads/" + "resized_" + fileName);
     
       let imagePath = "/uploads/resized_" + fileName;
+    console.log(imagePath);
+
       await db.query("INSERT INTO posts(uploads) VALUES ($1)", [
         imagePath,
       ]);
