@@ -63,6 +63,7 @@
               </a>
             </div>
             <p style="word-wrap: break-word;"><%= i.content%></p>
+            <img src="<%=i.uploads%>" alt="user's uploaded image">
             <div style="display: flex; justify-content: end">
               <% if (i.username === user) { %>
               <a href="/blog/<%=i.id%>">
