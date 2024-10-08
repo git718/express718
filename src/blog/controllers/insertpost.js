@@ -21,7 +21,7 @@ exports.insertposts = async (req, res) => {
           let fileName = `${Math.random() * 10000000000000000}${path.extname(
             req.files.image.name
           )}`;
-          await sharp(req.files.image.path).resize(600,600)
+          await sharp(req.files.image.path).resize(600,600).rotate()
           .toFile("./public/uploads/" + "resized_" + fileName);
         
           imagePath = "/uploads/resized_" + fileName;
