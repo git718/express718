@@ -24,11 +24,9 @@ if (req.files) {
         req.files.image.name
       )}`;
       await sharp(req.files.image.path).resize(600,600)
-      .toFormat('jpeg')
-      .rotate()
       .toFile("./public/uploads/" + "resized_" + fileName);
     
-      let imagePath = `uploads/${"resized_" + fileName}`;
+      let imagePath = "./public/uploads/resized_" + fileName;
       await db.query("INSERT INTO posts(uploads) VALUES $1", [
         imagePath,
       ]);
