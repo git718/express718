@@ -5,6 +5,8 @@ exports.getposts = async (req, res) => {
   let posts = await db.query(
     "SELECT * FROM users, posts WHERE users.name = posts.username ORDER BY posts.id DESC"
   );
+  console.log(posts);
+  
   const token = req.signedCookies.token;
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
