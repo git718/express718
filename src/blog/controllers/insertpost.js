@@ -1,13 +1,14 @@
+const sharp = require('sharp')
+
 exports.insertposts = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
-  console.log(req.fields);
   
   
     if (req.fields) {
       if (req.fields?.post?.length > 20000) {
-      req.body.post = req.body.post.slice(0, 20000)
+      req.fields.post = req.fields.post.slice(0, 20000)
     }
     await db.query("INSERT INTO posts(content, username) VALUES ($1, $2)", [
       req.fields.post,
