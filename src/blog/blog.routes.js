@@ -11,5 +11,4 @@ router.get("/blog/:id", deleteposts.deleteposts);
 
 router.post("/post", formidableMiddleware(), insertposts.insertposts);
 
-
 module.exports = router;
