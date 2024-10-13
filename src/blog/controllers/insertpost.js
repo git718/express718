@@ -5,16 +5,12 @@ exports.insertposts = async (req, res) => {
   if (token) {
     const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
   
-  
-    if (req.fields || req.files) {
-
       if (req.fields?.post?.length > 20000) {
       req.fields.post = req.fields.post.slice(0, 20000)
     }
 
   let imagePath = null;
-
-    if (req.files) {
+   
       let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg"]
       for (let i of extensions) {
           if (extensions.includes(path.extname(req.files.image.name))) {
@@ -27,15 +23,13 @@ exports.insertposts = async (req, res) => {
           imagePath = "/uploads/resized_" + fileName;
         } 
       } 
-    }
-
 
     await db.query("INSERT INTO posts(content, username, uploads) VALUES ($1, $2, $3)", [
       req.fields.post,
       user.username,
       imagePath
     ]);
-  }
+  
     
   return res.redirect("blog");
 
