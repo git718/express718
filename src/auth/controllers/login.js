@@ -4,7 +4,7 @@ exports.login = async (req, res) => {
   if (regex.test(name)) {
     return res.render("signin", {
       active: "signin",
-      response: `Ник должен включать только буквы и числа`,
+      response: `Username can only contain characters and numbers`,
       token: "",
       user: "",
       yourBio: "",
@@ -26,7 +26,7 @@ exports.login = async (req, res) => {
         if (!result) {
           return res.render("signin", {
             active: "signin",
-            response: `Имя пользователя ${name} существует в базе данных, но пароль неверен`,
+            response: `Password is not correct`,
             token: "",
             user: "",
             yourBio: "",
@@ -48,7 +48,7 @@ exports.login = async (req, res) => {
   } else {
     res.render("signin", {
       active: "signin",
-      response: `Пользователь не зарегистрирован, перейдите на Зарегистрироваться`,
+      response: `User is not register, please register a new user`,
       token: "",
       user: "",
       yourBio: "",

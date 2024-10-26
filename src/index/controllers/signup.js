@@ -5,7 +5,7 @@ exports.signup = async (req, res) => {
   } else {
     res.render("signup", {
       active: "signup",
-      response: "Зарегистрируйте нового пользователя здесь",
+      response: "Register new user here",
       token: "",
     });
   }

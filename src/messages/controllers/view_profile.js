@@ -23,7 +23,7 @@ exports.view_profile = async (req, res) => {
       res.render("user_profile", {
         active: "",
         token: token,
-        response: "Пользователь удален или не существует",
+        response: "Username deleted or does not exist.",
         user: user.username,
         data: "",
         data2: "",

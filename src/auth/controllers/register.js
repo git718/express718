@@ -4,7 +4,7 @@ exports.register = async (req, res) => {
   if (regex.test(name)) {
    return res.render("signup", {
       active: "signup",
-      response: "Ник должен состоять только из букв и чисел",
+      response: "Your username can only contain letters and numbers",
       token: "",
       user: "",
       })
@@ -20,7 +20,7 @@ exports.register = async (req, res) => {
   if (savedHash[0]) {
     res.render("signup", {
       active: "signup",
-      response: "Имя пользователя уже занято",
+      response: "Please use another username",
       token: "",
       user: "",
     });
