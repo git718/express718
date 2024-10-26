@@ -21,34 +21,36 @@
     <div class="container">
       <% if (!token) { %>
       <h1>Register</h1>
-      <div class="signinForm">
-        <form action="/signup" method="POST">
-          <div class="mb-3">
-            <label for="user" class="form-label">Username:</label>
-            <input
-              name="name"
-              type="text"
-              class="form-control"
-              id="user"
-              style="text-transform: lowercase"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="pass" class="form-label">Password:</label>
-            <input
-              type="password"
-              name="pass"
-              class="form-control"
-              id="pass"
-              style="text-transform: lowercase"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <input type="submit" value="Register" />
-          </div>
-        </form>
+      <div class="mx-auto p-2" style="width: 200px;">
+        <div class="signinForm">
+          <form action="/signup" method="POST">
+            <div class="mb-3">
+              <label for="user" class="form-label">Username:</label>
+              <input
+                name="name"
+                type="text"
+                class="form-control"
+                id="user"
+                style="text-transform: lowercase"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="pass" class="form-label">Password:</label>
+              <input
+                type="password"
+                name="pass"
+                class="form-control"
+                id="pass"
+                style="text-transform: lowercase"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <input type="submit" value="Register" />
+            </div>
+          </form>
+        </div>
       </div>
       <% } else if (token) { %> <%- include('./partials/profile.ejs') %> <% } %>
       <p><% if (response) { %></p>
