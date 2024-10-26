@@ -10,7 +10,7 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
-    <title>Посты</title>
+    <title>Posts</title>
   </head>
   <body id="body">
     <%- include('./partials/navbar2.ejs') %> <% if (token) { %> <%-
@@ -19,7 +19,7 @@
     <div class="container">
       <form action="/post" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
-          <label for="text1" class="form-label">TEKCT:</label>
+          <label for="text1" class="form-label">Text:</label>
           <textarea
             name="post"
             class="form-control"
@@ -30,7 +30,7 @@
         </div>
         <input type="file" name="image" id="image" style="width: 200px; margin-bottom: 2px;" >
         <div class="mb-3">
-          <input type="submit" value="Отправить" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
       <% if (response) { %>
@@ -48,7 +48,7 @@
           >
             <div style="display: flex; justify-content: space-between">
               <p class="fs-6 fw-lighter">
-                <%=i.username.toUpperCase()%> написал:
+                <%=i.username.toUpperCase()%> posted:
               </p>
               <a style="text-decoration: none" href="/user_profile/<%=i.id%>">
                 <div style="display: flex; flex-direction: column">
@@ -109,7 +109,7 @@
                     margin-top: 10px;
                   "
                 >
-                  <%=j.username.toUpperCase()%> ответил:
+                  <%=j.username.toUpperCase()%> replied:
                   <p style="margin-top: 10px; word-wrap: break-word;">
                     <a href="/blog/<%=j.id%>" style="text-decoration: none">
                       <%= j.text%>
@@ -147,7 +147,7 @@
                   --bs-btn-font-size: 0.75rem;
                 "
               >
-                Ответить
+                Reply
               </button>
             </form>
           </li>

@@ -1,5 +1,5 @@
 <div>
-    <h2>Сообщения</h2>
+    <h2>Messages</h2>
     <div class="card text-bg-light mb-3" style="max-width: 18rem;">
         <div class="card-body">
       <% if (data[0]) {%>
@@ -19,11 +19,11 @@
                     <form action="/sendprivate2" method="POST">
                         <input type="hidden" name="from_user"  value="<%= i.to_user %>">
                         <input type="hidden" name="to_user"  value="<%= i.from_user %>">
-                        <input type="hidden" name="response"  value="Отправлено!">
+                        <input type="hidden" name="response"  value="Sent!">
                         <input type="hidden" name="content"  value="<%= i.content %>">
                         <input type="text" class="form-control" id="private" name="private">
                         <button class="btn btn-outline-secondary"
-                        style="--bs-btn-padding-y: .05rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">ответить</button>
+                        style="--bs-btn-padding-y: .05rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">reply</button>
                     </form>
                 </div>
                     <a href="/private/<%=i.id%>">
@@ -35,7 +35,7 @@
 
     <% } %>
       <% } else { %>
-        <%=response='нет сообщений'%>
+        <%=response='no messages'%>
         <%  }  %>
     </div>
 </div>

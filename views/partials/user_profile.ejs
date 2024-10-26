@@ -3,12 +3,12 @@
     <%} else {%>
     <% for (let i of userData) {%>
 <div> 
-    <h2>Профиль пользователя</h2>
+    <h2>User profile</h2>
     <div class="card" style="width: 18rem">
     <div class="card-body">
         <div>
         <div  style="margin-bottom: 2px;">
-                <img  class="card-img-top" src="<%= i.image%>" alt="фото">
+                <img  class="card-img-top" src="<%= i.image%>" alt="photo">
         </div>
         </div>
         <p>
@@ -19,9 +19,9 @@
             <div class="mb-3">
                 <input type="hidden" name="to_user"  value="<%= i.name %>">
                 <input type="hidden" name="bio"  value="<%= i.bio %>">
-                <label for="private" class="form-label">Отправить личное сообщение:</label>
+                <label for="private" class="form-label">Send a private message:</label>
                 <input style="width: 228px;" type="text" class="form-control" id="private" name="private">
-                <input style="margin-top: 5px;" type="submit" value="Отправить">
+                <input style="margin-top: 5px;" type="submit" value="Send">
               </div>
         </form>
     </div>
