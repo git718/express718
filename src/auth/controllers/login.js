@@ -48,7 +48,7 @@ exports.login = async (req, res) => {
   } else {
     res.render("signin", {
       active: "signin",
-      response: `User is not register, please register a new user`,
+      response: `User is not registered, please register a new user`,
       token: "",
       user: "",
       yourBio: "",
