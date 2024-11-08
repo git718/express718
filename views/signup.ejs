@@ -51,12 +51,14 @@
             </div>
           </form>
         </div>
+        <p><% if (response) { %>
+
+          <div class="alert alert-primary" role="alert"><%= response %></div>
+          <% } %>
+          </p>
       </div>
       <% } else if (token) { %> <%- include('./partials/profile.ejs') %> <% } %>
-      <p><% if (response) { %></p>
-
-      <div class="alert alert-primary" role="alert"><%= response %></div>
-      <% } %>
+     
     </div>
   </body>
 </html>
