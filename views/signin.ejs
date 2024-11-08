@@ -38,6 +38,13 @@
               </div>
           </form>
       </div>
+      <p>
+        <% if (response) { %>
+          <div class="alert alert-primary" role="alert">
+             <%= response %>
+          </div>
+       <% } %>
+      </p>
     </div>
     <% } else if (token) { %>
       <div class="responsive" style="display: flex; gap: 50px;">
@@ -56,13 +63,7 @@
 
       </div>
       <% } %>
-      <p>
-        <% if (response) { %>
-          <div class="alert alert-primary" role="alert">
-             <%= response %>
-          </div>
-       <% } %>
-      </p>
+
       </div>
 </body>
 </html>
