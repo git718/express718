@@ -23,8 +23,9 @@
     "javascript-binary-converter": "^1.0.2",
     "jsonwebtoken": "^9.0.0",
     "moment": "^2.29.4",
+    "morgan": "^1.10.0",
     "node-mv": "^0.1.3",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.1.7",
     "pg-promise": "^11.5.0",
     "sharp": "^0.33.5"
   }

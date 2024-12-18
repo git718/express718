@@ -7,6 +7,7 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const helmet = require('helmet');
+const morgan = require('morgan')
 
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/bro718.ru/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/bro718.ru/cert.pem', 'utf8');
@@ -34,9 +35,11 @@ const contactRoute = require("./src/contact/contact.routes");
 const messagesRoutes = require("./src/messages/private.routes");
 const commentsRoutes = require("./src/comments/comments.routes");
 const fileUpload = require("express-fileupload");
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 app.enable('trust proxy');
 app.set("view engine", "ejs");
 
+app.use(morgan('combined', { stream: accessLogStream }))
 app.use(cookieParser("rwervterbj353jhbdkfhv"));
 app.use(express.static(__dirname, { dotfiles: 'allow' } ));
 app.use(indexGetRoutes);
