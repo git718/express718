@@ -1,4 +1,7 @@
 exports.mailer = async (req, res) => {
+	if (req.body.info !== "") {
+	return res.status(400).send('Spam detected')
+}
     if (req.body.email && 
     req.body.textarea && 
     req.body.email.includes("@")) {
