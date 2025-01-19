@@ -14,10 +14,10 @@ exports.insertposts = async (req, res) => {
       let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg"]
       for (let i of extensions) {
           if (extensions.includes(path.extname(req.files.image.name))) {
-          let fileName = `${Math.random() * 10000000000000000}${path.extname(
+          let fileName = `${Math.random() * 1e16}${path.extname(
             req.files.image.name
           )}`;
-          await sharp(req.files.image.path).resize(600,600).rotate()
+          await sharp(req.files.image.path).rotate()
           .toFile("./public/uploads/" + "resized_" + fileName);
         
           imagePath = "/uploads/resized_" + fileName;
