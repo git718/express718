@@ -11,7 +11,7 @@ exports.insertposts = async (req, res) => {
 
   let imagePath = null;
    
-      let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg"]
+      let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg", ".WEBP", ".webp"]
       for (let i of extensions) {
           if (extensions.includes(path.extname(req.files.image.name))) {
           let fileName = `${Math.random() * 1e16}${path.extname(
