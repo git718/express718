@@ -64,6 +64,17 @@ app.use(function (request, response, next) {
   next();
 });
 
+
+// Middleware to block access to .git directories
+app.use((req, res, next) => {
+  if (req.url.startsWith('/.git')) {
+      res.status(403).send('Access Denied');
+  } else {
+      next();
+  }
+});
+
+
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
 
