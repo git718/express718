@@ -10,14 +10,17 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
-    <title>Contacts</title>
+    <title>Auto</title>
   </head>
   <body id="body">
     <%- include('./partials/navbar2.ejs') %> <% if (token) { %> <%-
     include('./partials/loginbar.ejs') %> <% } else { %> <%-
     include('./partials/logoutbar.ejs') %> <% } %>
     <div class="container">
-      
+        <form action="/postauto" method="post">
+            <button type="submit" class="btn btn-secondary btn-lg">Post</button>
+        </form>
+        
       <p>
         <% if (response) { %>
           <div class="alert alert-primary" role="alert">
