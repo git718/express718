@@ -3434,3 +3434,7 @@
 ::ffff:24.188.230.5 - - [02/Feb/2025:20:57:22 +0000] "GET /css/main.css HTTP/1.1" 304 - "https://bro718.ru/boards" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
 ::ffff:24.188.230.5 - - [02/Feb/2025:20:57:23 +0000] "GET /auto HTTP/1.1" 304 - "https://bro718.ru/boards" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
 ::ffff:24.188.230.5 - - [02/Feb/2025:20:57:23 +0000] "GET /css/main.css HTTP/1.1" 304 - "https://bro718.ru/auto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+::ffff:24.188.230.5 - - [02/Feb/2025:21:00:20 +0000] "GET /boards HTTP/1.1" 304 - "https://bro718.ru/auto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+::ffff:24.188.230.5 - - [02/Feb/2025:21:00:21 +0000] "GET /css/main.css HTTP/1.1" 304 - "https://bro718.ru/boards" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+::ffff:24.188.230.5 - - [02/Feb/2025:21:00:22 +0000] "GET /auto HTTP/1.1" 304 - "https://bro718.ru/boards" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+::ffff:24.188.230.5 - - [02/Feb/2025:21:00:22 +0000] "GET /css/main.css HTTP/1.1" 304 - "https://bro718.ru/auto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
