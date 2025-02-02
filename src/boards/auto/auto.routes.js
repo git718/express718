@@ -5,7 +5,7 @@ const getautopost = require("./controllers/getautopost");
 
 
 router.get("/auto", getauto.getauto);
-router.get("/autopost", getautopost.getautopost);
+router.get("/postauto", getautopost.getautopost);
 
 
 module.exports = router;
