@@ -9,9 +9,9 @@ exports.getautopost = async (req, res) => {
         user: user.username,
       });
     } else {
-      res.render("postauto", {
+      res.render("auto", {
         active: "boards",
-        response: "",
+        response: "You have to log in",
         token: "",
         user: "",
       });
