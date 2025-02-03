@@ -22,10 +22,10 @@
 
     <div class="container">
 
-      
+      <form action="/submitpostauto" method="post">
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">@</span>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" value="<%= user %>"" aria-label="Username" aria-describedby="basic-addon1">
       </div>
       
       <div class="input-group mb-3">
@@ -58,7 +58,8 @@
         <span class="input-group-text">With textarea</span>
         <textarea class="form-control" aria-label="With textarea"></textarea>
       </div>
-        
+        <input type="submit" value="post">
+      </form>
       <p>
         <% if (response) { %>
           <div class="alert alert-primary" role="alert">
