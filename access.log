@@ -5532,3 +5532,7 @@
 ::ffff:24.188.230.5 - - [04/Feb/2025:01:16:22 +0000] "GET /css/main.css HTTP/1.1" 304 - "https://bro718.ru/postauto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
 ::ffff:24.188.230.5 - - [04/Feb/2025:01:19:33 +0000] "GET /postauto HTTP/1.1" 200 2967 "https://bro718.ru/auto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
 ::ffff:24.188.230.5 - - [04/Feb/2025:01:19:33 +0000] "GET /css/main.css HTTP/1.1" 304 - "https://bro718.ru/postauto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+::ffff:24.188.230.5 - - [04/Feb/2025:01:26:15 +0000] "GET /auto HTTP/1.1" 200 1536 "https://bro718.ru/boards" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+::ffff:24.188.230.5 - - [04/Feb/2025:01:26:15 +0000] "GET /css/main.css HTTP/1.1" 304 - "https://bro718.ru/auto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+::ffff:24.188.230.5 - - [04/Feb/2025:01:26:16 +0000] "GET /postauto HTTP/1.1" 304 - "https://bro718.ru/auto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+::ffff:24.188.230.5 - - [04/Feb/2025:01:26:16 +0000] "GET /css/main.css HTTP/1.1" 304 - "https://bro718.ru/postauto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
