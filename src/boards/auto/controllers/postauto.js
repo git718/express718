@@ -3,6 +3,8 @@ exports.postauto = async (req, res) => {
     if (token) {
       const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
       const user_id = await db.query("SELECT id from users WHERE name=$1", [user.username])
+      console.log(user_id);
+      
       if (req.fields.username && req.fields.brand && req.fields.model && 
         req.fields.year && req.fields.amount
       ) {
