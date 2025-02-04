@@ -7,13 +7,8 @@ exports.postauto = async (req, res) => {
         req.fields.year && req.fields.amount
       ) {
         await db.query("INSERT INTO auto(user_id, username, make, model, year, description) VALUES ($1, $2, $3, $4, $5, $6)",
-            [user_id, req.fields.username, req.fields.make, req.fields.model, req.fields.year, req.fields.description])
-            return res.render("postauto", {
-                active: "boards",
-                response: "added your post",
-                token: token,
-                user: user.username,
-              });
+            [user_id, req.fields.username, req.fields.brand, req.fields.model, req.fields.year, req.fields.description])
+            return res.redirect("auto")
       }
       return res.render("postauto", {
         active: "boards",
