@@ -3,7 +3,75 @@ exports.postauto = async (req, res) => {
     if (token) {
       const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
       const user_id = await db.query("SELECT id from users WHERE name=$1", [user.username])
-      
+      const carBrands = [
+        "Acura",
+        "Alfa Romeo",
+        "Aston Martin",
+        "Audi",
+        "Bentley",
+        "BMW",
+        "Bugatti",
+        "Buick",
+        "Cadillac",
+        "Chevrolet",
+        "Chrysler",
+        "Citroën",
+        "Dodge",
+        "Ferrari",
+        "Fiat",
+        "Ford",
+        "Genesis",
+        "GMC",
+        "Honda",
+        "Hyundai",
+        "Infiniti",
+        "Jaguar",
+        "Jeep",
+        "Kia",
+        "Lamborghini",
+        "Land Rover",
+        "Lexus",
+        "Lincoln",
+        "Maserati",
+        "Mazda",
+        "McLaren",
+        "Mercedes-Benz",
+        "Mini",
+        "Mitsubishi",
+        "Nissan",
+        "Pagani",
+        "Peugeot",
+        "Porsche",
+        "Ram",
+        "Renault",
+        "Rolls-Royce",
+        "Saab",
+        "Subaru",
+        "Suzuki",
+        "Tesla",
+        "Toyota",
+        "Volkswagen",
+        "Volvo"
+      ];
+        
+      if (!carBrands.includes(req.fields.brand.toLowerCase())) {
+        return res.render("postauto", {
+            active: "boards",
+            response: "No such car brand",
+            token: token,
+            user: user.username,
+          });
+      }
+      if (typeof Number(req.fields.year) !== "number" && typeof Number(req.fields.amount)!== "number" ) {
+        return res.render("postauto", {
+            active: "boards",
+            response: "Year and Price should be numbers",
+            token: token,
+            user: user.username,
+          });
+      }
+
+
       if (req.fields.username && req.fields.brand && req.fields.model && 
         req.fields.year && req.fields.amount
       ) {
