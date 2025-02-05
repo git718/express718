@@ -56,6 +56,17 @@ exports.postauto = async (req, res) => {
       ];
         const lowerCaseBrands = carBrands.map(brand => brand.toLocaleLowerCase())
 
+        const date = new Date();
+
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-indexed month
+        const day = String(date.getDate()).padStart(2, '0');
+        const year = String(date.getFullYear()).slice(-2); // Get last two digits of the year
+        
+        const formattedDate = `${month}-${day}-${year}`;
+        
+        
+
+
       if (!lowerCaseBrands.includes(req.fields.brand.toLowerCase())) {
         return res.render("postauto", {
             active: "boards",
@@ -77,8 +88,8 @@ exports.postauto = async (req, res) => {
       if (req.fields.username && req.fields.brand && req.fields.model && 
         req.fields.year && req.fields.amount
       ) {
-        await db.query("INSERT INTO auto(user_id, username, make, model, year, price, description) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-            [user_id[0].id, req.fields.username, req.fields.brand, req.fields.model, req.fields.year, req.fields.amount, req.fields.description])
+        await db.query("INSERT INTO auto(user_id, username, make, model, year, price, description, date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+            [user_id[0].id, req.fields.username, req.fields.brand, req.fields.model, req.fields.year, req.fields.amount, req.fields.description, formattedDate])
             return res.redirect("auto")
       }
       return res.render("postauto", {
