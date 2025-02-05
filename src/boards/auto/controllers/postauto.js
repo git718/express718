@@ -53,8 +53,9 @@ exports.postauto = async (req, res) => {
         "Volkswagen",
         "Volvo"
       ];
-        
-      if (!carBrands.includes(req.fields.brand.toLowerCase())) {
+        const lowerCaseBrands = carBrands.map(brand => brand.toLocaleLowerCase())
+
+      if (!lowerCaseBrands.includes(req.fields.brand.toLowerCase())) {
         return res.render("postauto", {
             active: "boards",
             response: "No such car brand",
@@ -67,7 +68,7 @@ exports.postauto = async (req, res) => {
             active: "boards",
             response: "Year and Price should be numbers",
             token: token,
-            user: user.username,
+            user: user.username,    
           });
       }
 
