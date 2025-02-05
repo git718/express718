@@ -20,26 +20,29 @@
         <a href="/postauto">
             <button type="button" class="btn btn-secondary btn-lg">Post</button>
         </a>
-        <%if (autos.length > 0) {%>
-          <% for (let auto of autos) {%>
 
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="car photo">
-            <div class="card-body">
-              <h5 class="card-title"><%=auto.price%></h5>
-              <p class="card-text"><%=auto.description%></p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><%=auto.make%></li>
-              <li class="list-group-item"><%=auto.model%></li>
-              <li class="list-group-item"><%=auto.year%></li>
-            </ul>
-            <div class="card-body">
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
+        <%if (autos.length > 0) {%>
+          <div class="row row-cols-auto">
+            <% for (let auto of autos) {%>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="car photo">
+                <div class="card-body">
+                  <h5 class="card-title">$<%=auto.price%></h5>
+                  <p class="card-text"><%=auto.description%></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><%=auto.make%></li>
+                  <li class="list-group-item"><%=auto.model%></li>
+                  <li class="list-group-item"><%=auto.year%></li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+            <%}%>
           </div>
-          <%}%>
         <%}%>
 
       <p>
