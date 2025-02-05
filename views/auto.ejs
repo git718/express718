@@ -22,6 +22,13 @@
             <button type="button" class="btn btn-secondary btn-lg">Post</button>
         </a>
       </p>
+      <p>
+        <% if (response) { %>
+          <div class="alert alert-primary" role="alert">
+             <%= response %>
+          </div>
+        <% } %>
+      </p>
 
         <%if (autos.length > 0) {%>
           <div class="row row-cols-auto">
@@ -47,13 +54,7 @@
           </div>
         <%}%>
 
-      <p>
-        <% if (response) { %>
-          <div class="alert alert-primary" role="alert">
-             <%= response %>
-          </div>
-        <% } %>
-      </p>
+      
     </div>
   </body>
 </html>
