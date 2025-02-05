@@ -17,9 +17,11 @@
     include('./partials/loginbar.ejs') %> <% } else { %> <%-
     include('./partials/logoutbar.ejs') %> <% } %>
     <div class="container">
+      <p>
         <a href="/postauto">
             <button type="button" class="btn btn-secondary btn-lg">Post</button>
         </a>
+      </p>
 
         <%if (autos.length > 0) {%>
           <div class="row row-cols-auto">

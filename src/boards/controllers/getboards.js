@@ -1,5 +1,6 @@
 exports.getboards = async (req, res) => {
     const token = req.signedCookies.token;
+    const autos = await db.query("SELECT * FROM auto")
     if (token) {
       const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
       return res.render("boards", {
@@ -7,6 +8,7 @@ exports.getboards = async (req, res) => {
         response: "",
         token: token,
         user: user.username,
+        autos: autos,
       });
     } else {
       res.render("boards", {
@@ -14,6 +16,7 @@ exports.getboards = async (req, res) => {
         response: "",
         token: "",
         user: "",
+        autos: autos,
       });
     }
   };
