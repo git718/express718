@@ -90,12 +90,14 @@ exports.postauto = async (req, res) => {
         req.fields.year && req.fields.amount
       ) { let imagePath = null;
                let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg", ".WEBP", ".webp"]
+               console.log(req.files.files);
+               
                   for (let i of extensions) {
                       if (extensions.includes(path.extname(req.files.files.name))) {
                       let fileName = `${Math.random() * 1e16}${path.extname(
-                        req.files.image.name
+                        req.files.files.name
                       )}`;
-                      await sharp(req.files.image.path).rotate()
+                      await sharp(req.files.files.path).rotate()
                       .toFile("./public/autos/" + "resized_" + fileName);
                     
                       imagePath = "/autos/resized_" + fileName;
