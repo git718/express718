@@ -89,8 +89,16 @@ exports.postauto = async (req, res) => {
       if (req.fields.username && req.fields.brand && req.fields.model && 
         req.fields.year && req.fields.amount
       ) { let imagePath = null;
-               let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg", ".WEBP", ".webp"]
-               console.log(req.files.files);
+               let extensions = [".JPEG", 
+                ".jpeg", 
+                ".GIF", 
+                ".gif", 
+                ".PNG", 
+                ".png", 
+                ".JPG", 
+                ".jpg", 
+                ".WEBP", 
+                ".webp"]
                
                   for (let i of extensions) {
                       if (extensions.includes(path.extname(req.files.files.name))) {
@@ -105,7 +113,15 @@ exports.postauto = async (req, res) => {
                   } 
             
                   await db.query("INSERT INTO auto(user_id, username, make, model, year, price, description, date, photo) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)",
-                    [user_id[0].id, req.fields.username, req.fields.brand, req.fields.model, req.fields.year, req.fields.amount, req.fields.description, formattedDate, imagePath])
+                    [user_id[0].id, 
+                    req.fields.username, 
+                    req.fields.brand, 
+                    req.fields.model, 
+                    req.fields.year, 
+                    req.fields.amount, 
+                    req.fields.description, 
+                    formattedDate, 
+                    imagePath])
 
             return res.redirect("auto")
 
