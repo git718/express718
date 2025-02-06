@@ -88,7 +88,11 @@ exports.postauto = async (req, res) => {
 
       if (req.fields.username && req.fields.brand && req.fields.model && 
         req.fields.year && req.fields.amount
-      ) { let imagePath = null;
+      ) {   let imagePath = null;
+            let imagePath1 = null;
+            let imagePath2 = null;
+            let imagePath3 = null;
+            let imagePath4 = null;
                let extensions = [".JPEG", 
                 ".jpeg", 
                 ".GIF", 
@@ -99,20 +103,23 @@ exports.postauto = async (req, res) => {
                 ".jpg", 
                 ".WEBP", 
                 ".webp"]
-               
+
+               for (let j=0; j < 5; j++) {
                   for (let i of extensions) {
-                      if (extensions.includes(path.extname(req.files.files.name))) {
+                      if (extensions.includes(path.extname(`req.files.files${j}.name`))) {
                       let fileName = `${Math.random() * 1e16}${path.extname(
                         req.files.files.name
                       )}`;
                       await sharp(req.files.files.path).rotate()
                       .toFile("./public/autos/" + "resized_" + fileName);
                     
-                      imagePath = "/autos/resized_" + fileName;
+                      `imagePath${j}` = "/autos/resized_" + fileName;
                     } 
                   } 
+                }
+          
             
-                  await db.query("INSERT INTO auto(user_id, username, make, model, year, price, description, date, photo) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)",
+                  await db.query("INSERT INTO auto(user_id, username, make, model, year, price, description, date, photo, photo1, photo2, photo3, photo4) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)",
                     [user_id[0].id, 
                     req.fields.username, 
                     req.fields.brand, 
@@ -121,7 +128,12 @@ exports.postauto = async (req, res) => {
                     req.fields.amount, 
                     req.fields.description, 
                     formattedDate, 
-                    imagePath])
+                    imagePath,
+                    imagePath1,
+                    imagePath2,
+                    imagePath3,
+                    imagePath4
+                ])
 
             return res.redirect("auto")
 
