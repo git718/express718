@@ -1,3 +1,5 @@
+const sharp = require('sharp')
+
 exports.postauto = async (req, res) => {
     const token = req.signedCookies.token;
     const autos = await db.query("SELECT * FROM auto")
@@ -60,7 +62,7 @@ exports.postauto = async (req, res) => {
 
         const month = String(date.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-indexed month
         const day = String(date.getDate()).padStart(2, '0');
-        const year = String(date.getFullYear()).slice(-2); // Get last two digits of the year
+        const year = String(date.getFullYear()); 
         
         const formattedDate = `${month}-${day}-${year}`;
         
@@ -84,13 +86,27 @@ exports.postauto = async (req, res) => {
           });
       }
 
-
       if (req.fields.username && req.fields.brand && req.fields.model && 
         req.fields.year && req.fields.amount
-      ) {
-        await db.query("INSERT INTO auto(user_id, username, make, model, year, price, description, date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
-            [user_id[0].id, req.fields.username, req.fields.brand, req.fields.model, req.fields.year, req.fields.amount, req.fields.description, formattedDate])
+      ) { let imagePath = null;
+               let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg", ".WEBP", ".webp"]
+                  for (let i of extensions) {
+                      if (extensions.includes(path.extname(req.files.image.name))) {
+                      let fileName = `${Math.random() * 1e16}${path.extname(
+                        req.files.image.name
+                      )}`;
+                      await sharp(req.files.image.path).rotate()
+                      .toFile("./public/autos/" + "resized_" + fileName);
+                    
+                      imagePath = "/autos/resized_" + fileName;
+                    } 
+                  } 
+            
+                  await db.query("INSERT INTO auto(user_id, username, make, model, year, price, description, date, photo) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)",
+                    [user_id[0].id, req.fields.username, req.fields.brand, req.fields.model, req.fields.year, req.fields.amount, req.fields.description, formattedDate, imagePath])
+
             return res.redirect("auto")
+
       }
       return res.render("postauto", {
         active: "boards",
