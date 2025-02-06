@@ -35,7 +35,39 @@
             <% for (let auto of autos) {%>
 
               <div class="card" style="width: 18rem;">
-                <img src="<%=auto.photo%>" class="card-img-top" alt="car photo">
+               <!-- <img src="<%=auto.photo%>" class="card-img-top" alt="car photo"> -->
+
+
+                <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="<%=auto.photo%>" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="<%=auto.photo1%>" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="<%=auto.photo2%>" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="<%=auto.photo3%>" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="<%=auto.photo4%>" class="d-block w-100" alt="...">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+
+
+
                 <div class="card-body">
                   <h5 class="card-title">$<%=auto.price%></h5>
                   <p class="card-text"><%=auto.description%></p>
