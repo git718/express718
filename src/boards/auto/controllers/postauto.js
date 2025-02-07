@@ -106,7 +106,16 @@ exports.postauto = async (req, res) => {
                 ".webp"
             ]
 
-               
+               if (
+                !req.files.files0.name && 
+                !req.files.files1.name &&
+                !req.files.files2.name &&
+                !req.files.files3.name &&
+                !req.files.files4.name
+               ) {
+                imagePath0 = "./public/images/car.png";
+              } 
+            } }
                   for (let i of extensions) {
                       if (extensions.includes(path.extname(req.files.files0.name))) {
                       let fileName = `${Math.random() * 1e16}${path.extname(
