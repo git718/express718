@@ -57,17 +57,11 @@ exports.postauto = async (req, res) => {
         "Volvo"
       ];
         const lowerCaseBrands = carBrands.map(brand => brand.toLocaleLowerCase())
-
         const date = new Date();
-
         const month = String(date.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-indexed month
         const day = String(date.getDate()).padStart(2, '0');
         const year = String(date.getFullYear()); 
-        
         const formattedDate = `${month}-${day}-${year}`;
-        
-        
-
 
       if (!lowerCaseBrands.includes(req.fields.brand.toLowerCase())) {
         return res.render("postauto", {
@@ -88,11 +82,8 @@ exports.postauto = async (req, res) => {
 
       if (req.fields.username && req.fields.brand && req.fields.model && 
         req.fields.year && req.fields.amount
-      ) {   let imagePath0 = null;
-            let imagePath1 = null;
-            let imagePath2 = null;
-            let imagePath3 = null;
-            let imagePath4 = null;
+      ) {   let imagePaths = null;
+
                let extensions = [
                 ".JPEG", 
                 ".jpeg", 
@@ -113,72 +104,34 @@ exports.postauto = async (req, res) => {
                 !req.files.files3.name &&
                 !req.files.files4.name
                ) {
-                imagePath0 = "./public/images/car.png";
-              } 
-            
-                  for (let i of extensions) {
-                      if (extensions.includes(path.extname(req.files.files0.name))) {
-                      let fileName = `${Math.random() * 1e16}${path.extname(
-                        req.files.files0.name
-                      )}`;
-                      await sharp(req.files.files0.path).rotate()
-                      .toFile("./public/autos/" + "resized_" + fileName);
-                    
-                      imagePath0 = "/autos/resized_" + fileName;
-                    } 
-                  } 
+                imagePaths = "./public/images/car.png";
+              } else {
 
-                  for (let i of extensions) {
-                    if (extensions.includes(path.extname(req.files.files1.name))) {
-                    let fileName = `${Math.random() * 1e16}${path.extname(
-                      req.files.files1.name
-                    )}`;
-                    await sharp(req.files.files1.path).rotate()
-                    .toFile("./public/autos/" + "resized_" + fileName);
-                  
-                    imagePath1 = "/autos/resized_" + fileName;
-                  } 
-                } 
+                let photo_array = [                
+                    req.files.files0, 
+                    req.files.files1,
+                    req.files.files2,
+                    req.files.files3,
+                    req.files.files4]
+    
+                      for (let photo of photo_array) {
+                        if (photo.name) {
+                            if (extensions.includes(path.extname(photo.name))) {
+                                let fileName = `${Math.random() * 1e16}${path.extname(
+                                  photo.name
+                                )}`;
+                                await sharp(photo.path).rotate()
+                                .toFile("./public/autos/" + "resized_" + fileName);
+                              
+                                let imagePath = "/autos/resized_" + fileName;
+                                imagePaths = imagePaths + ',' + imagePath
+                              } 
+                        }
 
-                for (let i of extensions) {
-                    if (extensions.includes(path.extname(req.files.files2.name))) {
-                    let fileName = `${Math.random() * 1e16}${path.extname(
-                      req.files.files2.name
-                    )}`;
-                    await sharp(req.files.files2.path).rotate()
-                    .toFile("./public/autos/" + "resized_" + fileName);
-                  
-                    imagePath2 = "/autos/resized_" + fileName;
-                  } 
-                } 
+                      } 
+              }
 
-                for (let i of extensions) {
-                    if (extensions.includes(path.extname(req.files.files3.name))) {
-                    let fileName = `${Math.random() * 1e16}${path.extname(
-                      req.files.files3.name
-                    )}`;
-                    await sharp(req.files.files3.path).rotate()
-                    .toFile("./public/autos/" + "resized_" + fileName);
-                  
-                    imagePath3 = "/autos/resized_" + fileName;
-                  } 
-                } 
-
-                for (let i of extensions) {
-                    if (extensions.includes(path.extname(req.files.files4.name))) {
-                    let fileName = `${Math.random() * 1e16}${path.extname(
-                      req.files.files4.name
-                    )}`;
-                    await sharp(req.files.files4.path).rotate()
-                    .toFile("./public/autos/" + "resized_" + fileName);
-                  
-                    imagePath4 = "/autos/resized_" + fileName;
-                  } 
-                } 
-                
-          
-            
-                  await db.query("INSERT INTO auto(user_id, username, make, model, year, price, description, date, photo, photo1, photo2, photo3, photo4) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)",
+                  await db.query("INSERT INTO auto(user_id, username, make, model, year, price, description, date, photo) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)",
                     [user_id[0].id, 
                     req.fields.username, 
                     req.fields.brand, 
@@ -187,11 +140,7 @@ exports.postauto = async (req, res) => {
                     req.fields.amount, 
                     req.fields.description, 
                     formattedDate, 
-                    imagePath0,
-                    imagePath1,
-                    imagePath2,
-                    imagePath3,
-                    imagePath4
+                    imagePaths
                 ])
 
             return res.redirect("auto")
