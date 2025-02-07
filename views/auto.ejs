@@ -37,12 +37,14 @@
               <div class="card" style="width: 18rem;">
               <img src="<%=auto.photo%>" class="card-img-top" alt="car photo">
                 <div class="card-body">
+                  <%if (auto.photo !== Null) {%>
                   <%if (auto.photo.includes(',')) {%>
                     <%const links = auto.photo.split(',')%>
                       <h5 class="card-title">$<%=links[0]%></h5>
                     <%} else {%>
                         <h5 class="card-title">$<%=auto.photo%></h5>
                       <%}%>
+                    <%}%>
                   <p class="card-text"><%=auto.description%></p>
                 </div>
                 <ul class="list-group list-group-flush">
