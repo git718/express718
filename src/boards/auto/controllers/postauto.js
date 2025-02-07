@@ -124,7 +124,7 @@ exports.postauto = async (req, res) => {
                                 .toFile("./public/autos/" + "resized_" + fileName);
                               
                                 let imagePath = "/autos/resized_" + fileName;
-                                imagePaths = imagePaths + ',' + imagePath
+                                imagePaths = imagePath + ','
                               } 
                         }
 
