@@ -35,16 +35,16 @@
           <div class="row row-cols-auto">
             <% for (let auto of autos) {%>
               <div class="card" style="width: 18rem;">
-              <img src="<%=auto.photo%>" class="card-img-top" alt="car photo">
-                <div class="card-body">
-                  <%if (auto.photo !== null) {%>
+                <%if (auto.photo !== null) {%>
                   <%if (auto.photo.includes(',')) {%>
                     <%const links = auto.photo.split(',')%>
-                      <h5 class="card-title">$<%=links[0]%></h5>
+                    <img src="<%=links[0]%>" class="card-img-top" alt="car photo">
                     <%} else {%>
-                        <h5 class="card-title">$<%=auto.photo%></h5>
+                      <img src="<%=auto.photo%>" class="card-img-top" alt="car photo">
                       <%}%>
                     <%}%>
+                <div class="card-body">
+                  <h5 class="card-title">$<%=auto.price%></h5>
                   <p class="card-text"><%=auto.description%></p>
                 </div>
                 <ul class="list-group list-group-flush">
