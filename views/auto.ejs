@@ -34,7 +34,7 @@
         <%if (autos.length > 0) {%>
           <div class="row row-cols-auto">
             <% for (let auto of autos) {%>
-              <%const links = autos.photo.split(',')%>
+              <%const links = auto.photo.split(',')%>
               <div class="card" style="width: 18rem;">
               <img src="<%=auto.photo%>" class="card-img-top" alt="car photo">
                 <div class="card-body">
