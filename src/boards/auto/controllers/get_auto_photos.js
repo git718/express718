@@ -5,9 +5,8 @@ exports.getautophotos = async (req, res) => {
         [id]
     )
     const links = object[0].photo
-    if (links.includes(',')) {
-        const splitted_links = links.split(',')
-        const sorted_links = splitted_links.filter(element => element !== '' && element !== null)
+    const splitted_links = links.split(',')
+    const sorted_links = splitted_links.filter(element => element !== '' && element !== null)
     
         if (token) {
           const user = jwt.verify(token, "rwervterbj353jhbdkfhv")
@@ -27,7 +26,4 @@ exports.getautophotos = async (req, res) => {
             links: sorted_links
           });
         }
-    } else {
-        return res.redirect("auto")
-    }
   };
