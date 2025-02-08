@@ -5,24 +5,29 @@ exports.getautophotos = async (req, res) => {
         [id]
     )
     const links = object[0].photo
-    const splitted_links = links.split(',')
-    const sorted_links = splitted_links.filter(element => element !== '' && element !== null)
-    if (token) {
-      const user = jwt.verify(token, "rwervterbj353jhbdkfhv")
-      return res.render("auto_photos", {
-        active: "boards",
-        response: "",
-        token: token,
-        user: user.username,
-        links: sorted_links
-      });
+    if (links.includes(',')) {
+        const splitted_links = links.split(',')
+        const sorted_links = splitted_links.filter(element => element !== '' && element !== null)
+    
+        if (token) {
+          const user = jwt.verify(token, "rwervterbj353jhbdkfhv")
+          return res.render("auto_photos", {
+            active: "boards",
+            response: "",
+            token: token,
+            user: user.username,
+            links: sorted_links
+          });
+        } else {
+          return res.render("auto_photos", {
+            active: "boards",
+            response: "",
+            token: "",
+            user: "",
+            links: sorted_links
+          });
+        }
     } else {
-      res.render("auto_photos", {
-        active: "boards",
-        response: "",
-        token: "",
-        user: "",
-        links: sorted_links
-      });
+        return res.redirect("auto")
     }
   };
