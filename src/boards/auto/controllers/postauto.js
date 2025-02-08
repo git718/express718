@@ -3,6 +3,8 @@ const sharp = require('sharp')
 exports.postauto = async (req, res) => {
     const token = req.signedCookies.token;
     const autos = await db.query("SELECT * FROM auto")
+    const users = await db.query("SELECT * FROM users")
+
     if (token) {
       const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
       const user_id = await db.query("SELECT id from users WHERE name=$1", [user.username])
@@ -161,6 +163,7 @@ exports.postauto = async (req, res) => {
         token: "",
         user: "",
         autos: autos,
+        users: users
       });
     }
   };

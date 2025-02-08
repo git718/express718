@@ -1,6 +1,8 @@
 exports.getautopost = async (req, res) => {
     const token = req.signedCookies.token;
     const autos = await db.query("SELECT * FROM auto")
+    const users = await db.query("SELECT * FROM users")
+
     if (token) {
       const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
       return res.render("postauto", {
@@ -16,6 +18,7 @@ exports.getautopost = async (req, res) => {
         token: "",
         user: "",
         autos: autos,
+        users: users
       });
     }
   };
