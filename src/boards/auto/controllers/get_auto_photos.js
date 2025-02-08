@@ -1,7 +1,9 @@
 exports.getautophotos = async (req, res) => {
     const token = req.signedCookies.token
     const id = req.params.post_id
-    const object = await db.query("SELECT * FROM auto WHERE post_id=id")
+    const object = await db.query("SELECT * FROM auto WHERE post_id=$1", 
+        [id]
+    )
     const links = object[0].photo
     const splitted_links = links.split(',')
     const sorted_links = splitted_links.filter(element => element !== '' && element !== null)
