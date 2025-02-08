@@ -39,9 +39,15 @@
                   <%if (auto.photo.includes(',')) {%>
                     <%const links = auto.photo.split(',')%>
                     <%const sorted_links = links.filter(element => element !== '' && element !== null)%>
-                    <img src="<%=sorted_links[0]%>" class="card-img-top" alt="car photo">
+                    <form action="/auto_photos" method="post">
+                      <img src="<%=sorted_links[0]%>" class="card-img-top" alt="car photo">
+                      <input type="text" name="id" value="<%=auto.user_id%>" hidden>
+                    </form>
                     <%} else {%>
-                      <img src="<%=auto.photo%>" class="card-img-top" alt="car photo">
+                      <form action="/auto_photos" method="post">
+                        <img src="<%=auto.photo%>" class="card-img-top" alt="car photo">
+                        <input type="text" name="id" value="<%=auto.user_id%>" hidden>
+                    </form>
                       <%}%>
                     <%}%>
                 <div class="card-body">
