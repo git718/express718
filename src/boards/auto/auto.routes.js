@@ -8,7 +8,7 @@ const formidableMiddleware = require('express-formidable');
 
 router.get("/auto", getauto.getauto)
 router.get("/postauto", getautopost.getautopost)
-router.get("/get_auto_photos/:post_id", getautophotos.getautophotos)
+router.get("/auto_photos/:post_id", getautophotos.getautophotos)
 router.post("/postauto",formidableMiddleware(), postauto.postauto)
 
 
