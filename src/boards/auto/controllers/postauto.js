@@ -82,7 +82,8 @@ exports.postauto = async (req, res) => {
 
       if (req.fields.username && req.fields.brand && req.fields.model && 
         req.fields.year && req.fields.amount
-      ) {   let imagePaths = null;
+      ) {   
+            let imagePaths = '';
 
                let extensions = [
                 ".JPEG", 
@@ -124,13 +125,14 @@ exports.postauto = async (req, res) => {
                                 .toFile("./public/autos/" + "resized_" + fileName);
                               
                                 let imagePath = "/autos/resized_" + fileName;
-                                imagePaths = imagePath + ','
+                                imagePaths = imagePaths + ',' + imagePath
                               } 
+                        } else {
+                            continue
                         }
-
                       } 
               }
-
+                
                   await db.query("INSERT INTO auto(user_id, username, make, model, year, price, description, date, photo) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)",
                     [user_id[0].id, 
                     req.fields.username, 

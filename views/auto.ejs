@@ -38,7 +38,8 @@
                 <%if (auto.photo !== null) {%>
                   <%if (auto.photo.includes(',')) {%>
                     <%const links = auto.photo.split(',')%>
-                    <img src="<%=links[0]%>" class="card-img-top" alt="car photo">
+                    <%const sorted_links = links.filter(element => element !== '' && element !== null)%>
+                    <img src="<%=sorted_links[0]%>" class="card-img-top" alt="car photo">
                     <%} else {%>
                       <img src="<%=auto.photo%>" class="card-img-top" alt="car photo">
                       <%}%>
