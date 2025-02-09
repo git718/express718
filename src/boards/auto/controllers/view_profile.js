@@ -9,7 +9,7 @@ exports.view_profile = async (req, res) => {
       console.log(data);
       
       if (data[0]) {
-        res.render("user_profile", {
+        res.render("view_auto_seller_profile", {
           active: "",
           token: token,
           response: "",
@@ -17,7 +17,7 @@ exports.view_profile = async (req, res) => {
           data: data[0]
         });
       } else {
-        res.render("user_profile", {
+        res.render("view_auto_seller_profile", {
           active: "",
           token: token,
           response: "Username deleted or does not exist.",
