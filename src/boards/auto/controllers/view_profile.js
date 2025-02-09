@@ -6,6 +6,8 @@ exports.view_profile = async (req, res) => {
       const data = await db.query("SELECT * FROM users WHERE id=$1",
         [id]
       )
+      console.log(data);
+      
       if (data[0]) {
         res.render("user_profile", {
           active: "",
@@ -21,7 +23,6 @@ exports.view_profile = async (req, res) => {
           response: "Username deleted or does not exist.",
           user: user.username,
           data: "",
-          data2: "",
         });
       }
     } else {
