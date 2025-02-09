@@ -7,7 +7,7 @@ exports.getautophotos = async (req, res) => {
         [id]
     )
     const links = object[0].photo
-    if (links == null || link == './public/images/car.png') {
+    if (links == null || links == './public/images/car.png') {
       if (token) {
         const user = jwt.verify(token, "rwervterbj353jhbdkfhv")
         return res.render("auto", {
