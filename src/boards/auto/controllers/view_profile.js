@@ -2,7 +2,10 @@ exports.view_profile = async (req, res) => {
     const token = req.signedCookies.token;
     if (token) {
       const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
-      const data = await db.query("")
+      const id = req.params.user_id
+      const data = await db.query("SELECT * FROM users WHERE id=$1",
+        [id]
+      )
       if (data[0]) {
         res.render("user_profile", {
           active: "",
