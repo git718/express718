@@ -20,7 +20,7 @@ exports.getautophotos = async (req, res) => {
         } else {
           return res.render("auto_photos", {
             active: "boards",
-            response: "",
+            response: "register or login to send messages",
             token: "",
             user: "",
             links: sorted_links

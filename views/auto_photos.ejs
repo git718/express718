@@ -20,9 +20,15 @@
     <div class="container">
         <div class="container text-center">
             <div class="row row-cols-2">
+              <%if (links.length > 1 {%>
                 <%for (let link of links) {%>
                     <img src="<%=link%>" class="d-block w-100" alt="car picture">
                 <%}%>
+              <%} else {%>
+                <div class="alert alert-primary" role="alert">
+                  No pictures provided by seller.
+                </div>
+                <%%}>
             </div>
           </div> 
   </body>
