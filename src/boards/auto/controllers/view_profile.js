@@ -26,7 +26,7 @@ exports.view_profile = async (req, res) => {
         });
       }
     } else {
-      res.redirect("auto");
+      res.redirect("/auto");
     }
   };
   
