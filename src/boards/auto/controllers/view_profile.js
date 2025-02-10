@@ -6,7 +6,6 @@ exports.view_profile = async (req, res) => {
       const data = await db.query("SELECT * FROM users WHERE id=$1",
         [id]
       )
-      console.log(data);
       
       if (data[0]) {
         res.render("view_auto_seller_profile", {

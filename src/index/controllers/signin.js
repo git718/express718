@@ -12,6 +12,10 @@ exports.signin = async (req, res) => {
       "SELECT * FROM private WHERE to_user = $1 ORDER by id DESC",
       [user.username]
     );
+    const outbox = await db.query(
+      "SELECT * FROM private WHERE from_user = $1 ORDER by id DESC",
+      [user.username]
+    );
     let userData = ''
     if (!req.query.userData == '' || !req.query.userData == ' ') {
       userData = await db.query("SELECT * FROM users WHERE name = $1", [
@@ -32,6 +36,7 @@ exports.signin = async (req, res) => {
       yourBio: bio[0].bio,
       image: userImage[0].image,
       data: data,
+      outbox: outbox,
       userData: userData,
     });
   } else {
