@@ -18,6 +18,10 @@ exports.addImage = async (req, res) => {
       "SELECT * FROM private WHERE from_user = $1 ORDER by id DESC",
       [user.username]
     );
+    const all_user_messages = await db.query(
+      "SELECT * FROM private WHERE to_user = $1 AND from_user = $1 ORDER by id DESC",
+      [user.username]
+    );
     const userData = await db.query("SELECT * FROM users WHERE name = $1", [
       req.query.userData? req.query.userData.toLowerCase():null,
     ]);
@@ -50,6 +54,7 @@ exports.addImage = async (req, res) => {
             user: user.username,
             data: data,
             outbox: outbox,
+            user_messages: all_user_messages,
             userData: userData[0],
           });
         }
