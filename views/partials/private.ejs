@@ -1,6 +1,6 @@
 <div style="display: flex; flex-direction: row;">
     <div>
-                <h2>Inbox</h2>
+                <h5>Inbox</h5>
                 <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                     <div class="card-body">
                   <% if (data[0]) {%>
@@ -10,8 +10,8 @@
                     <li class="list-group-item">
                         <div style="display: flex; justify-content: space-between;">
                             <div style="display: flex; flex-direction: column; max-width: 10rem;"> 
-                                <h5>От: <%=i.from_user%></h5>
-                                <h5>Для: <%=i.to_user%></h5>
+                                <p>От: <%=i.from_user%></p>
+                                <p>Для: <%=i.to_user%></p>
                                 <p>
                                     <section>
                                         <%=i.content%>
@@ -42,7 +42,7 @@
             </div>
     </div>
     <div>
-        <h2>Outbox</h2>
+        <h5>Outbox</h5>
                 <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                     <div class="card-body">
                   <% if (outbox[0]) {%>
@@ -52,13 +52,16 @@
                     <li class="list-group-item">
                         <div style="display: flex; justify-content: space-between;">
                             <div style="display: flex; flex-direction: column; max-width: 10rem;"> 
-                                <h5>От: <%=i.from_user%></h5>
-                                <h5>Для: <%=i.to_user%></h5>
+                                <p>От: <%=i.from_user%></p>
+                                <p>Для: <%=i.to_user%></p>
                                 <p>
                                     <section>
                                         <%=i.content%>
                                     </section>
                                 </p>
+                                <a href="/private/<%=i.id%>">
+                                    <img src="images/icons8-delete-67.png" alt="delete">
+                                </a>
                             </div>
                         </div>
                     </li>
