@@ -18,7 +18,7 @@ exports.signin = async (req, res) => {
     );
     
     const all_user_messages = await db.query(
-      "SELECT * FROM private WHERE to_user = $1 AND from_user = $1 ORDER by id DESC",
+      "SELECT * FROM private WHERE to_user = $1 OR from_user = $1 ORDER by id DESC",
       [user.username]
     );
 
