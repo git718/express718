@@ -22,13 +22,14 @@
                 <div>
                     <%- include('./partials/user_profile.ejs') %>
                 </div>
-                <div class="row row-cols-2">
-                    <%for (let link of links) {%>
-                        <p>
-                            <img src="<%=link%>" class="d-block w-100" alt="car picture">
-                        </p>
-                    <%}%>
-                </div>
+                
+            </div>
+            <div class="row row-cols-2">
+                <%for (let link of links) {%>
+                    <p>
+                        <img src="<%=link%>" class="d-block w-100" alt="car picture">
+                    </p>
+                <%}%>
             </div>
   </body>
 </html>
