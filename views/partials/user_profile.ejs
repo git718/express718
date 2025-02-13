@@ -6,15 +6,9 @@
     <h2>User profile</h2>
     <div class="card" style="width: 18rem">
     <div class="card-body">
-        <% if (i.image.startsWith('images')) {%>
-        <div  style="margin-bottom: 2px;">
-                <img  class="card-img-top" src="<%= i.image%>" alt="photo">
-        </div>
-        <%} else {%>
             <div  style="margin-bottom: 2px;">
-                <img  class="card-img-top" src="<%=pic%>" alt="photo">
+                <img  class="card-img-top" src="<%=i.image%>" alt="photo">
             </div>
-        <%}%>
         <p>
         <h4 class="card-title"><%= i.name%></h4>
         </p>
