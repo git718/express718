@@ -7,7 +7,7 @@ exports.getautophotos = async (req, res) => {
     const userData = await db.query("SELECT * FROM users WHERE id=$1", 
         [object[0].user_id]
     )
-    const profile_image = "./public/" + userData[0].photo
+    const profile_image = "./public/" + userData[0].image
     const links = object[0].photo
     if (links == null || links == './public/images/car.png') {
         return res.redirect("/auto")
