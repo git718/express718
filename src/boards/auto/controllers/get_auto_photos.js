@@ -11,7 +11,7 @@ exports.getautophotos = async (req, res) => {
     if (links == null || links == './public/images/car.png') {
         return res.redirect("/auto")
       } 
-
+    const profile_foto = '/' + userData[0].image
     const splitted_links = links.split(',')
     const sorted_links = splitted_links.filter(element => element !== '' && element !== null)
     
@@ -24,6 +24,7 @@ exports.getautophotos = async (req, res) => {
             user: user.username,
             links: sorted_links,
             userData: userData,
+            user_foto: profile_foto
           });
         } else {
           return res.render("auto_photos", {
@@ -33,6 +34,7 @@ exports.getautophotos = async (req, res) => {
             user: "",
             links: sorted_links,
             userData: '',
+            user_foto: ''
           });
         }
   };
