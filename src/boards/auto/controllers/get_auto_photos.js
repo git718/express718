@@ -7,6 +7,7 @@ exports.getautophotos = async (req, res) => {
     const userData = await db.query("SELECT * FROM users WHERE id=$1", 
         [object[0].user_id]
     )
+    const profile_image = "./public/" + userData[0].photo
     const links = object[0].photo
     if (links == null || links == './public/images/car.png') {
         return res.redirect("/auto")
@@ -23,7 +24,8 @@ exports.getautophotos = async (req, res) => {
             token: token,
             user: user.username,
             links: sorted_links,
-            userData: userData
+            userData: userData,
+            pic: profile_image
           });
         } else {
           return res.render("auto_photos", {
@@ -32,7 +34,8 @@ exports.getautophotos = async (req, res) => {
             token: "",
             user: "",
             links: sorted_links,
-            userData: ''
+            userData: '',
+            pic: ''
           });
         }
   };
