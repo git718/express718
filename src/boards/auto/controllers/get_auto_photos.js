@@ -4,6 +4,9 @@ exports.getautophotos = async (req, res) => {
     const object = await db.query("SELECT * FROM auto WHERE post_id=$1", 
         [id]
     )
+    const userData = await db.query("SELECT * FROM users WHERE id=$1", 
+        [object[0].user_id]
+    )
     const links = object[0].photo
     if (links == null || links == './public/images/car.png') {
         return res.redirect("/auto")
@@ -19,7 +22,8 @@ exports.getautophotos = async (req, res) => {
             response: "",
             token: token,
             user: user.username,
-            links: sorted_links
+            links: sorted_links,
+            userData: userData
           });
         } else {
           return res.render("auto_photos", {
@@ -27,7 +31,8 @@ exports.getautophotos = async (req, res) => {
             response: "register or login to send messages",
             token: "",
             user: "",
-            links: sorted_links
+            links: sorted_links,
+            userData: ''
           });
         }
   };
