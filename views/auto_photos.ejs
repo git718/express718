@@ -17,13 +17,13 @@
     <%- include('./partials/navbar2.ejs') %> <% if (token) { %> <%-
     include('./partials/loginbar.ejs') %> <% } else { %> <%-
     include('./partials/logoutbar.ejs') %> <% } %>
-    <div class="container" style="gap: 50px;">
-            <div class="responsive" style="display: flex; gap: 50px;">
+    <div class="container">
+            <div class="responsive" style="display: flex; gap: 10px;">
                 <div>
                     <%- include('./partials/user_profile.ejs') %>
                 </div>
                 <div>
-                    <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+                    <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                         <div class="card-header">$<%=object[0].price%></div>
                         <div class="card-body">
                           <h5 class="card-title"><%=object[0].make%> <%=object[0].model%> <%=object[0].year%></h5>
@@ -32,11 +32,11 @@
                       </div>
                 </div>
             </div>
-            <div class="row row-cols-2">
+            <div class="responsive">
                 <%for (let link of links) {%>
-                    <p>
+                    <div>
                         <img src="<%=link%>" class="d-block w-100" alt="car picture">
-                    </p>
+                    </div>
                 <%}%>
             </div>
     </div>
