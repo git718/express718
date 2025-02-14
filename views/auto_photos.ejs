@@ -42,7 +42,13 @@
                     <%}%>
                 <%} else {%>
                     <div>
-                        
+                        <p>
+                            <% if (response) { %>
+                              <div class="alert alert-primary" role="alert">
+                                 <%= response %>
+                              </div>
+                           <% } %>
+                          </p>
                     </div>
                     <%}%>
             </div>
