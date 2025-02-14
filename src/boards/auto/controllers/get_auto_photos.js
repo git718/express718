@@ -8,6 +8,7 @@ exports.getautophotos = async (req, res) => {
         [object[0].user_id]
     )
     const links = object[0].photo
+    const profile_foto = '/' + userData[0].image
     if (links == null || links == './public/images/car.png') {
         if (token) {
             const user = jwt.verify(token, "rwervterbj353jhbdkfhv")
@@ -34,7 +35,6 @@ exports.getautophotos = async (req, res) => {
             });
           }
       } 
-    const profile_foto = '/' + userData[0].image
     const splitted_links = links.split(',')
     const sorted_links = splitted_links.filter(element => element !== '' && element !== null)
     
