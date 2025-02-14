@@ -34,11 +34,17 @@
                 </div>
             </div>
             <div class="responsive">
-                <%for (let link of links) {%>
-                    <div style="padding: 5px;">
-                        <img src="<%=link%>" class="d-block w-100" alt="car picture">
+                <%if (links[0]) {%>
+                    <%for (let link of links) {%>
+                        <div style="padding: 5px;">
+                            <img src="<%=link%>" class="d-block w-100" alt="car picture">
+                        </div>
+                    <%}%>
+                <%} else {%>
+                    <div>
+                        
                     </div>
-                <%}%>
+                    <%}%>
             </div>
     </div>
   </body>

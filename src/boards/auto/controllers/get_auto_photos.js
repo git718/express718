@@ -9,7 +9,30 @@ exports.getautophotos = async (req, res) => {
     )
     const links = object[0].photo
     if (links == null || links == './public/images/car.png') {
-        return res.redirect("/auto")
+        if (token) {
+            const user = jwt.verify(token, "rwervterbj353jhbdkfhv")
+            return res.render("auto_photos", {
+              active: "boards",
+              response: "seller did not provide photos",
+              token: token,
+              user: user.username,
+              links: '',
+              userData: userData,
+              user_foto: profile_foto,
+              object: object
+            });
+          } else {
+            return res.render("auto_photos", {
+              active: "boards",
+              response: "register or login to send messages",
+              token: "",
+              user: "",
+              links: '',
+              userData: '',
+              user_foto: '',
+              object: object
+            });
+          }
       } 
     const profile_foto = '/' + userData[0].image
     const splitted_links = links.split(',')
