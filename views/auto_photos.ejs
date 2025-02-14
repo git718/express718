@@ -23,6 +23,7 @@
                     <%- include('./partials/user_profile.ejs') %>
                 </div>
                 <div>
+                    <h2>Car Info</h2>
                     <div class="card text-bg-light mb-3" style="max-width: 18rem;">
                         <div class="card-header">$<%=object[0].price%></div>
                         <div class="card-body">
@@ -34,7 +35,7 @@
             </div>
             <div class="responsive">
                 <%for (let link of links) {%>
-                    <div>
+                    <div style="padding: 5px;">
                         <img src="<%=link%>" class="d-block w-100" alt="car picture">
                     </div>
                 <%}%>
