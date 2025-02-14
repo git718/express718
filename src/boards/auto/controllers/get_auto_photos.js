@@ -24,7 +24,8 @@ exports.getautophotos = async (req, res) => {
             user: user.username,
             links: sorted_links,
             userData: userData,
-            user_foto: profile_foto
+            user_foto: profile_foto,
+            object: object
           });
         } else {
           return res.render("auto_photos", {
@@ -34,7 +35,8 @@ exports.getautophotos = async (req, res) => {
             user: "",
             links: sorted_links,
             userData: '',
-            user_foto: ''
+            user_foto: '',
+            object: object
           });
         }
   };
