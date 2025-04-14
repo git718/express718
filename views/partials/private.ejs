@@ -22,6 +22,7 @@
                                     <input type="hidden" name="to_user"  value="<%= i.from_user %>">
                                     <input type="hidden" name="response"  value="Sent!">
                                     <input type="hidden" name="content"  value="<%= i.content %>">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                     <input type="text" class="form-control" id="private" name="private">
                                     <button class="btn btn-outline-secondary"
                                     style="--bs-btn-padding-y: .05rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">reply</button>
