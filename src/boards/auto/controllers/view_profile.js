@@ -14,7 +14,8 @@ exports.view_profile = async (req, res) => {
           token: token,
           response: "",
           user: user.username,
-          data: data[0]
+          data: data[0],
+          csrfToken: req.csrfToken()
         });
       } else {
         res.render("view_auto_seller_profile", {
@@ -23,6 +24,7 @@ exports.view_profile = async (req, res) => {
           response: "Username deleted or does not exist.",
           user: user.username,
           data: "",
+          csrfToken: req.csrfToken(),
         });
       }
     } else {
