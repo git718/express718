@@ -8,6 +8,7 @@
         </div>
         <form action="/addimage" method="POST" enctype="multipart/form-data">
           <input type="file" name="image" id="image" style="width: 200px; margin-bottom: 2px;" >
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
           <input type="submit" value="Upload">
         </form>
       </div>
