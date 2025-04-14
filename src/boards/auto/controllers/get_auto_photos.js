@@ -21,7 +21,8 @@ exports.getautophotos = async (req, res) => {
               links: '',
               userData: userData,
               user_foto: profile_foto,
-              object: object
+              object: object,
+              csrfToken: req.csrfToken(),
             });
           } else {
             return res.render("auto_photos", {
@@ -32,7 +33,8 @@ exports.getautophotos = async (req, res) => {
               links: '',
               userData: '',
               user_foto: '',
-              object: object
+              object: object,
+              csrfToken: req.csrfToken(),
             });
           }
       } 
@@ -49,7 +51,8 @@ exports.getautophotos = async (req, res) => {
             links: sorted_links,
             userData: userData,
             user_foto: profile_foto,
-            object: object
+            object: object,
+            csrfToken: req.csrfToken(),
           });
         } else {
           return res.render("auto_photos", {
@@ -60,7 +63,8 @@ exports.getautophotos = async (req, res) => {
             links: sorted_links,
             userData: '',
             user_foto: '',
-            object: object
+            object: object,
+            csrfToken: req.csrfToken(),
           });
         }
   };
