@@ -8,6 +8,7 @@ exports.contacts = (req, res) => {
       token: token,
       response: "",
       user: user.username,
+      csrfToken: req.csrfToken(),
     });
   } else {
     res.render("contacts", {
@@ -15,6 +16,7 @@ exports.contacts = (req, res) => {
       token: "",
       response: "",
       user: "",
+      csrfToken: req.csrfToken(),
     });
   }
 };
