@@ -11,7 +11,7 @@ exports.getautophotos = async (req, res) => {
     const profile_foto = '/' + userData[0].image
     if (links == null || links == './public/images/car.png') {
         if (token) {
-            const user = jwt.verify(token, "rwervterbj353jhbdkfhv")
+            const user = jwt.verify(token, "sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd")
             return res.render("auto_photos", {
               active: "boards",
               response: "seller did not provide photos",
