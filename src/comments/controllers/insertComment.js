@@ -1,7 +1,8 @@
 exports.insertComment = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
-    const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
+    const user = jwt.verify(token, process.env.JWT_SECRET);
+
     if (req.body.child_comment) {
       if (req.body.child_comment.length > 20000) {
         req.body.child_comment = req.body.child_comment.slice(0, 20000)
