@@ -29,6 +29,7 @@
           ></textarea>
         </div>
         <input type="file" name="image" id="image" style="width: 200px; margin-bottom: 2px;" >
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <div class="mb-3">
           <input type="submit" value="Submit" />
         </div>
@@ -131,6 +132,7 @@
                 name="parent_username"
                 value="<%= i.username %>"
               />
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <input type="hidden" name="parent_post_id" value="<%= i.id %>" />
               <input
                 type="text"
