@@ -23,6 +23,7 @@
             <div class="mb-3">
                 <input type="hidden" name="to_user"  value="<%= i.name %>">
                 <input type="hidden" name="bio"  value="<%= i.bio %>">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <label for="private" class="form-label">Send a private message:</label>
                 <input style="width: 228px;" type="text" class="form-control" id="private" name="private">
                 <input style="margin-top: 5px;" type="submit" value="Send">
