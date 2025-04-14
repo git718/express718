@@ -11,6 +11,7 @@ exports.getautopost = async (req, res) => {
         response: "",
         token: token,
         user: user.username,
+        csrfToken: req.csrfToken(),
       });
     } else {
       res.render("auto", {
@@ -19,7 +20,8 @@ exports.getautopost = async (req, res) => {
         token: "",
         user: "",
         autos: autos,
-        users: users
+        users: users,
+        csrfToken: req.csrfToken(),
       });
     }
   };
