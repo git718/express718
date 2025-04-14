@@ -8,7 +8,8 @@ exports.getposts = async (req, res) => {
   
   const token = req.signedCookies.token;
   if (token) {
-    const user = jwt.verify(token, "sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd");
+    const user = jwt.verify(token, process.env.JWT_SECRET);
+
     return res.render("blog", {
       active: "blog",
       replies: replies,
