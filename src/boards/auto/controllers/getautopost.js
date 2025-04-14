@@ -4,7 +4,7 @@ exports.getautopost = async (req, res) => {
     const users = await db.query("SELECT * FROM users")
 
     if (token) {
-      const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
+      const user = jwt.verify(token, "sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd");
       return res.render("postauto", {
         active: "boards",
         response: "",
