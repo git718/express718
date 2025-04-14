@@ -32,9 +32,10 @@ exports.login = async (req, res) => {
             yourBio: "",
           });
         } else {
-          const token = jwt.sign(responseUser, "sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd", {
-            expiresIn: 10000000,
-          });
+       const token = jwt.sign(responseUser, process.env.JWT_SECRET, {
+  expiresIn: 10000000, // Adjust this as needed
+});
+
           res.cookie("token", token, {
             httpOnly: true,
             secure: false,
