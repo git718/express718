@@ -1,6 +1,7 @@
 exports.sendPrivMessage = async (req, res) => {
   const token = req.signedCookies.token;
-  const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
+ const user = jwt.verify(token, process.env.JWT_SECRET);
+
   if (token) {
     let image = await db.query("SELECT image FROM users WHERE name =$1", [
       req.body.to_user,
