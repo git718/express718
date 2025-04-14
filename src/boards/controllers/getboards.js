@@ -10,6 +10,7 @@ exports.getboards = async (req, res) => {
         token: token,
         user: user.username,
         autos: autos,
+        csrfToken: req.csrfToken(),
       });
     } else {
       res.render("boards", {
@@ -18,6 +19,7 @@ exports.getboards = async (req, res) => {
         token: "",
         user: "",
         autos: autos,
+        csrfToken: req.csrfToken(),
       });
     }
   };
