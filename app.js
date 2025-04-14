@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser")
 const httpPort = process.env.port || 80
 const httpsPort = process.env.port || 443
 const fs = require('fs')
+const dotenv = require('dotenv').config();
 const http = require('http')
 const https = require('https')
 const helmet = require('helmet')
@@ -27,6 +28,8 @@ global.path = require("path")
 global.bcrypt = require("bcrypt")
 global.jwt = require("jsonwebtoken")
 global.fileUpload = require("express-fileupload")
+
+const jwtSecret = process.env.JWT_SECRET;
 
 const indexGetRoutes = require("./src/index/index.routes.get")
 const blogRoutes = require("./src/blog/blog.routes")
