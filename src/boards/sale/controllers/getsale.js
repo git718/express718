@@ -1,7 +1,8 @@
 exports.getsale = async (req, res) => {
     const token = req.signedCookies.token;
     if (token) {
-      const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
+      const user = jwt.verify(token, process.env.JWT_SECRET);
+
       return res.render("sale", {
         active: "boards",
         response: "",
