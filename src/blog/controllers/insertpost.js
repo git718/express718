@@ -42,7 +42,6 @@ exports.insertposts = async (req, res) => {
       posts: "",
       token: "",
       user: "",
-      csrfToken: req.csrfToken(),
     });
   }
 };

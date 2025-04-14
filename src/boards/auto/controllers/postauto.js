@@ -72,7 +72,6 @@ exports.postauto = async (req, res) => {
             response: "No such car brand",
             token: token,
             user: user.username,
-            csrfToken: req.csrfToken(),
           });
       }
       if (typeof Number(req.fields.year) !== "number" && typeof Number(req.fields.amount)!== "number" ) {
@@ -81,7 +80,6 @@ exports.postauto = async (req, res) => {
             response: "Year and Price should be numbers",
             token: token,
             user: user.username,   
-            csrfToken: req.csrfToken(),
           });
       }
 
@@ -160,7 +158,6 @@ exports.postauto = async (req, res) => {
         response: "Some fields need to be filled.",
         token: token,
         user: user.username,
-        csrfToken: req.csrfToken(),
       });
     } else {
       res.render("auto", {
@@ -170,7 +167,6 @@ exports.postauto = async (req, res) => {
         user: "",
         autos: autos,
         users: users,
-        csrfToken: req.csrfToken(),
       });
     }
   };

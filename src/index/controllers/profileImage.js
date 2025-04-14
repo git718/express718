@@ -57,7 +57,6 @@ exports.addImage = async (req, res) => {
             outbox: outbox,
             user_messages: all_user_messages,
             userData: userData[0],
-            csrfToken: req.csrfToken(),
           });
         }
       } 

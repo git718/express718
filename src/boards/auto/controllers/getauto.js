@@ -12,7 +12,6 @@ exports.getauto = async (req, res) => {
         user: user.username,
         autos: autos,
         users: users,
-        csrfToken: req.csrfToken(),
       });
     } else {
       res.render("auto", {
@@ -22,7 +21,6 @@ exports.getauto = async (req, res) => {
         user: "",
         autos: autos,
         users: users,
-        csrfToken: req.csrfToken(),
       });
     }
   };

@@ -17,7 +17,6 @@ exports.getposts = async (req, res) => {
       token: token,
       user: user.username,
       posts: posts,
-      csrfToken: req.csrfToken(),
     });
   } else {
     res.render("blog", {
@@ -27,7 +26,6 @@ exports.getposts = async (req, res) => {
       token: "",
       user: "",
       posts: posts,
-      csrfToken: req.csrfToken(),
     });
   }
 };

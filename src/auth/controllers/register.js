@@ -7,7 +7,6 @@ exports.register = async (req, res) => {
       response: "Your username can only contain letters and numbers",
       token: "",
       user: "",
-      csrfToken: req.csrfToken(),
       })
   }
   const savedHash = await db.query("SELECT pass FROM users WHERE name = $1", [
@@ -24,7 +23,6 @@ exports.register = async (req, res) => {
       response: "Please use another username",
       token: "",
       user: "",
-      csrfToken: req.csrfToken(),
     });
   } else {
     await bcrypt.hash(req.body.pass, 10, async function (err, hash) {

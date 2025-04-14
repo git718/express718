@@ -8,7 +8,6 @@ exports.login = async (req, res) => {
       token: "",
       user: "",
       yourBio: "",
-      csrfToken: req.csrfToken(),
       })
   }
   
@@ -31,7 +30,6 @@ exports.login = async (req, res) => {
             token: "",
             user: "",
             yourBio: "",
-            csrfToken: req.csrfToken(),
           });
         } else {
        const token = jwt.sign(responseUser, process.env.JWT_SECRET, {
@@ -55,7 +53,6 @@ exports.login = async (req, res) => {
       token: "",
       user: "",
       yourBio: "",
-      csrfToken: req.csrfToken(),
     });
   }
 };

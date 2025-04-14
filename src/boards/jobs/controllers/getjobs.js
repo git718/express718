@@ -8,7 +8,6 @@ const user = jwt.verify(token, process.env.JWT_SECRET);
         response: "",
         token: token,
         user: user.username,
-        csrfToken: req.csrfToken(),
       });
     } else {
       res.render("jobs", {
@@ -16,7 +15,6 @@ const user = jwt.verify(token, process.env.JWT_SECRET);
         response: "",
         token: "",
         user: "",
-        csrfToken: req.csrfToken(),
       });
     }
   };

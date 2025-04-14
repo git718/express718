@@ -46,14 +46,12 @@ exports.signin = async (req, res) => {
       outbox: outbox,
       user_messages: all_user_messages,
       userData: userData,
-      csrfToken: req.csrfToken(),
     });
   } else {
     res.render("signin", {
       active: "signin",
       response: "",
       token: "",
-      csrfToken: req.csrfToken(),
     });
   }
 };

@@ -24,14 +24,12 @@ exports.mailer = async (req, res) => {
         active: "", 
         token: token, 
         user: user.username,
-        csrfToken: req.csrfToken(),
       });
     } else {
       res.render("form", { 
         active: "",
         token: "", 
         user: "",
-        csrfToken: req.csrfToken(),
       });
     }
   }

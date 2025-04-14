@@ -30,7 +30,6 @@
           <div class="mb-3">
               <input type="hidden" name="to_user"  value="<%= data.name %>">
               <input type="hidden" name="bio"  value="<%= data.bio %>">
-                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <label for="private" class="form-label">Send a message:</label>
               <input style="width: 228px;" type="text" class="form-control" id="private" name="private">
               <input style="margin-top: 5px;" type="submit" value="Send">
@@ -52,7 +51,6 @@
                 <div class="mb-3">
                     <input type="hidden" name="to_user"  value="<%= data2.name %>">
                     <input type="hidden" name="bio"  value="<%= data2.bio %>">
-<input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <label for="private" class="form-label">Send a message:</label>
                     <input style="width: 228px;" type="text" class="form-control" id="private" name="private">
                     <input style="margin-top: 5px;" type="submit" value="Send">

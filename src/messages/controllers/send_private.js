@@ -27,7 +27,6 @@ exports.sendPrivMessage = async (req, res) => {
           MESSAGE: "${req.body.private}"`,
           user: user.username,
           data: dataObject,
-          csrfToken: req.csrfToken(),
         });
       
     } else {
@@ -37,7 +36,6 @@ exports.sendPrivMessage = async (req, res) => {
         response: "Empty message",
         user: user.username,
         data: dataObject,
-        csrfToken: req.csrfToken(),
       });
     }
   }
