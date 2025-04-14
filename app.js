@@ -47,7 +47,6 @@ app.set("view engine", "ejs")
 
 app.use(morgan('combined', { stream: accessLogStream }))
 app.use(cookieParser("rwervterbj353jhbdkfhv"))
-app.use(express.static(__dirname, { dotfiles: 'allow' } ))
 app.use(indexGetRoutes)
 app.use(messagesRoutes)
 app.use(blogRoutes)
