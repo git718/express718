@@ -2,7 +2,7 @@ exports.getboards = async (req, res) => {
     const token = req.signedCookies.token;
     const autos = await db.query("SELECT * FROM auto")
     if (token) {
-      const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
+      const user = jwt.verify(token, "sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd");
       return res.render("boards", {
         active: "boards",
         response: "",
