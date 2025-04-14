@@ -70,7 +70,7 @@ app.use((req, res, next) => {
 });
 
 app.use(helmet());
-app.use(express.static(path.join(__dirname, "/public")))
+app.use(express.static(path.join(__dirname, "/public"), { dotfiles: 'ignore' }));
 app.use(express.json())
 app.use(fileUpload())
 app.use(express.urlencoded({ extended: false }))
