@@ -8,6 +8,7 @@ exports.gethousing = async (req, res) => {
         response: "",
         token: token,
         user: user.username,
+        csrfToken: req.csrfToken(),
       });
     } else {
       res.render("housing", {
@@ -15,6 +16,7 @@ exports.gethousing = async (req, res) => {
         response: "",
         token: "",
         user: "",
+        csrfToken: req.csrfToken(),
       });
     }
   };
