@@ -9,6 +9,7 @@ const http = require('http')
 const https = require('https')
 const helmet = require('helmet')
 const morgan = require('morgan')
+const csrf = require('csurf');
 
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/bro718.ru/privkey.pem', 'utf8')
 const certificate = fs.readFileSync('/etc/letsencrypt/live/bro718.ru/cert.pem', 'utf8')
@@ -47,6 +48,9 @@ const fileUpload = require("express-fileupload")
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 app.enable('trust proxy')
 app.set("view engine", "ejs")
+
+app.use(csrf());
+
 
 app.use(morgan('combined', { stream: accessLogStream }))
 app.use(cookieParser("sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd"))
