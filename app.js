@@ -52,7 +52,7 @@ app.set("view engine", "ejs")
 
 
 app.use(morgan('combined', { stream: accessLogStream }))
-app.use(cookieParser("sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd"))
+app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(indexGetRoutes)
 app.use(messagesRoutes)
 app.use(blogRoutes)
