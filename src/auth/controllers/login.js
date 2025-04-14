@@ -32,7 +32,7 @@ exports.login = async (req, res) => {
             yourBio: "",
           });
         } else {
-          const token = jwt.sign(responseUser, "rwervterbj353jhbdkfhv", {
+          const token = jwt.sign(responseUser, "sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd", {
             expiresIn: 10000000,
           });
           res.cookie("token", token, {
