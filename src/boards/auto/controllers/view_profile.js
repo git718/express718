@@ -1,7 +1,8 @@
 exports.view_profile = async (req, res) => {
     const token = req.signedCookies.token;
     if (token) {
-      const user = jwt.verify(token, "sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd");
+     const user = jwt.verify(token, process.env.JWT_SECRET);
+
       const id = req.params.user_id
       const data = await db.query("SELECT * FROM users WHERE id=$1",
         [id]
