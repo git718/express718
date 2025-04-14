@@ -23,13 +23,16 @@ exports.mailer = async (req, res) => {
       res.render("form", { 
         active: "", 
         token: token, 
-        user: user.username 
+        user: user.username,
+        csrfToken: req.csrfToken(),
       });
     } else {
       res.render("form", { 
         active: "",
         token: "", 
-        user: "" });
+        user: "",
+        csrfToken: req.csrfToken(),
+      });
     }
   }
 }
