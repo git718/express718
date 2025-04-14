@@ -3,7 +3,8 @@ exports.getauto = async (req, res) => {
     const autos = await db.query("SELECT * FROM auto ORDER BY post_id DESC")
     const users = await db.query("SELECT * FROM users")
     if (token) {
-      const user = jwt.verify(token, "sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd")
+     const user = jwt.verify(token, process.env.JWT_SECRET);
+
       return res.render("auto", {
         active: "boards",
         response: "",
