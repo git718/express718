@@ -32,9 +32,10 @@ exports.register = async (req, res) => {
         [name, hash, "images/profile-icon-9.png", "I am a new user"]
       );
       response = `You signed up`;
-      const token = jwt.sign(responseUser, "sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd", {
-        expiresIn: 10000000,
-      });
+const token = jwt.sign(responseUser, process.env.JWT_SECRET, {
+  expiresIn: 10000000, // Adjust this as needed
+});
+
       res.cookie("token", token, {
         httpOnly: true,
         secure: false,
