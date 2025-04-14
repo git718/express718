@@ -3,7 +3,7 @@ const sharp = require('sharp')
 exports.insertposts = async (req, res) => {
   const token = req.signedCookies.token;
   if (token) {
-    const user = jwt.verify(token, "rwervterbj353jhbdkfhv");
+    const user = jwt.verify(token, "sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd");
   
       if (req.fields?.post?.length > 20000) {
       req.fields.post = req.fields.post.slice(0, 20000)
