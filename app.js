@@ -49,7 +49,6 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'),
 app.enable('trust proxy')
 app.set("view engine", "ejs")
 
-app.use(csrf());
 
 
 app.use(morgan('combined', { stream: accessLogStream }))
@@ -79,7 +78,9 @@ app.use(helmet());
 app.use(express.static(path.join(__dirname, "/public"), { dotfiles: 'ignore' }));
 app.use(express.json())
 app.use(fileUpload())
-app.use(express.urlencoded({ extended: false }))
+app.use(csrf());
+//app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 app.use((req, res) => {
   res.status(404).send("404 Page does not exist")
 })
@@ -89,9 +90,6 @@ app.use(function (request, response, next) {
   }
   next()
 })
-
-
-
 
 
 const httpServer = http.createServer(app);
