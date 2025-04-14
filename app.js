@@ -46,7 +46,7 @@ app.enable('trust proxy')
 app.set("view engine", "ejs")
 
 app.use(morgan('combined', { stream: accessLogStream }))
-app.use(cookieParser("rwervterbj353jhbdkfhv"))
+app.use(cookieParser("sdfdsfgdfgdfg89067845687456908457yghdsfjgdsfgd"))
 app.use(indexGetRoutes)
 app.use(messagesRoutes)
 app.use(blogRoutes)
