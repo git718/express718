@@ -19,6 +19,7 @@ exports.view_profile = async (req, res) => {
         user: user.username,
         data: data[0],
         data2: data2[0],
+        csrfToken: req.csrfToken(),
       });
     } else {
       res.render("user_profile", {
@@ -28,6 +29,7 @@ exports.view_profile = async (req, res) => {
         user: user.username,
         data: "",
         data2: "",
+        csrfToken: req.csrfToken(),
       });
     }
   } else {
