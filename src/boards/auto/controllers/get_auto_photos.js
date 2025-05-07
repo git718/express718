@@ -19,12 +19,12 @@ exports.getautophotos = async (req, res) => {
               response: "seller did not provide photos",
               token: token,
               user: user.username,
-              links: './public/images/car.png',
+              links: '',
               userData: userData,
               user_foto: profile_foto,
               object: object,
             });
-            
+
           } else {
             return res.render("auto_photos", {
               active: "boards",
