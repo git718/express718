@@ -129,7 +129,7 @@ exports.postauto = async (req, res) => {
                                 //.toFile("./public/autos/" + "resized_" + fileName);
                                 im.convert([
                                   photo.path,
-                                  "-rotate", "90",
+                                  "-rotate", "0",
                                   "./public/autos/resized_" + fileName
                                 ], (err) => {
                                   if (err) throw err;
