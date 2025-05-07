@@ -24,7 +24,7 @@ exports.insertposts = async (req, res) => {
         im.convert([
           req.files.image.path,
           "-rotate", "90",
-          "./public/uploads/resized_" + filename
+          "./public/uploads/resized_" + fileName
         ], (err) => {
           if (err) throw err;
           console.log("image processed successfully");
