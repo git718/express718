@@ -24,6 +24,7 @@ exports.getautophotos = async (req, res) => {
               user_foto: profile_foto,
               object: object,
             });
+            
           } else {
             return res.render("auto_photos", {
               active: "boards",
