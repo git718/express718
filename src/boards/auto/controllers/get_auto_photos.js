@@ -8,8 +8,7 @@ exports.getautophotos = async (req, res) => {
         [object[0].user_id]
     )
     const links = object[0].photo
-    //const profile_foto = '/' + userData[0].image
-    const profile_foto = userData[0].image
+    const profile_foto = '/' + userData[0].image
 
     if (links == null || links == './public/images/car.png') {
         if (token) {
@@ -20,7 +19,7 @@ exports.getautophotos = async (req, res) => {
               response: "seller did not provide photos",
               token: token,
               user: user.username,
-              links: '',
+              links: './public/images/car.png',
               userData: userData,
               user_foto: profile_foto,
               object: object,
