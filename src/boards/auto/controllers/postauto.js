@@ -1,4 +1,5 @@
-const sharp = require('sharp')
+//const sharp = require('sharp')
+const im = require("imagemagick")
 
 exports.postauto = async (req, res) => {
     const token = req.signedCookies.token;
@@ -124,9 +125,18 @@ exports.postauto = async (req, res) => {
                                 let fileName = `${Math.random() * 1e16}${path.extname(
                                   photo.name
                                 )}`;
-                                await sharp(photo.path).rotate()
-                                .toFile("./public/autos/" + "resized_" + fileName);
-                              
+                                //await sharp(photo.path).rotate()
+                                //.toFile("./public/autos/" + "resized_" + fileName);
+                                im.convert([
+                                  photo.path,
+                                  "-rotate", "90",
+                                  "./public/autos/resized_" + fileName
+                                ], (err) => {
+                                  if (err) throw err;
+                                  console.log("Image processed successfully");
+                                  
+                                })  
+
                                 let imagePath = "/autos/resized_" + fileName;
                                 imagePaths = imagePaths + ',' + imagePath
                               } else { 

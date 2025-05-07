@@ -1,4 +1,5 @@
-const sharp = require("sharp");
+//const sharp = require("sharp");
+const im = require("imagemagick")
 
 exports.addImage = async (req, res) => {
   const token = req.signedCookies.token;
@@ -34,11 +35,18 @@ exports.addImage = async (req, res) => {
             req.files.image.name
           )}`;
           await req.files.image.mv("public/uploads/" + fileName);
-          await sharp("./public/uploads/" + fileName).resize(600,600)
-          .toFormat('jpeg')
-          .rotate()
-          .toFile("./public/uploads/" + "resized_" + fileName);
-        
+          //await sharp("./public/uploads/" + fileName).resize(600,600)
+          //.toFormat('jpeg')
+          //.rotate()
+          //.toFile("./public/uploads/" + "resized_" + fileName);
+          im.convert([
+            "./public/uploads" + fileName, '-resize', '600X600', '-rotate', '90',
+            "./public/uploads/resized_" + fileName
+          ], (err) => {
+            if (err) throw err;
+            console.log('Image resized and processed')
+          })
+
           let imagePath = `uploads/${"resized_" + fileName}`;
           await db.query("UPDATE users SET image = $1 WHERE name = $2", [
             imagePath,
