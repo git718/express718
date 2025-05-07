@@ -40,7 +40,7 @@ exports.addImage = async (req, res) => {
           //.rotate()
           //.toFile("./public/uploads/" + "resized_" + fileName);
           im.convert([
-            "./public/uploads" + fileName, '-resize', '600X600', '-rotate', '90',
+            "./public/uploads/" + fileName, '-resize', '600X600', '-rotate', '90',
             "./public/uploads/resized_" + fileName
           ], (err) => {
             if (err) throw err;
