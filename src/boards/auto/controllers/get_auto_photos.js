@@ -40,7 +40,7 @@ exports.getautophotos = async (req, res) => {
     const sorted_links = splitted_links.filter(element => element !== '' && element !== null)
     
         if (token) {
-          const user = jwt.verify(token, "rwervterbj353jhbdkfhv")
+          const user = jwt.verify(token, process.env.JWT_SECRET)
           return res.render("auto_photos", {
             active: "boards",
             response: "",
