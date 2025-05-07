@@ -23,7 +23,8 @@ exports.insertposts = async (req, res) => {
          // .toFile("./public/uploads/" + "resized_" + fileName);
         im.convert([
           req.files.image.path,
-          "-rotate", "90",
+          "-rotate", "0",
+          '-resize', '600X600',
           "./public/uploads/resized_" + fileName
         ], (err) => {
           if (err) throw err;
