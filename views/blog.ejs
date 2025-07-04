@@ -64,10 +64,13 @@
             </div>
             <p style="word-wrap: break-word;"><pre><%= i.content%></pre></p>
             <% if (i.uploads != null) {%>
-              <img
-              src="<%=i.uploads%>"
-              style="min-width: 100px; height: auto"
+
+            <img
+            src="<%= i.uploads %>"
+            class="img-fluid"
+            style="min-width: 100px; max-width: 100%; height: auto;"
             />
+
             <% } %>
             <div style="display: flex; justify-content: end">
               <% if (i.username === user) { %>
