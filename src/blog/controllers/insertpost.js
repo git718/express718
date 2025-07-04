@@ -37,8 +37,8 @@ if (extensions.includes(ext)) {
     let args = [inputPath];
 
     if (resizeNeeded) {
-      args.push("-resize", `${MAX_WIDTH}x${MAX_HEIGHT}\\>`);
 
+      args.push("-resize", `${MAX_WIDTH}x${MAX_HEIGHT}>`);
 
     }
 
