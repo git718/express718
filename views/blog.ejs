@@ -63,14 +63,16 @@
               </a>
             </div>
             <p style="word-wrap: break-word;"><pre><%= i.content%></pre></p>
-            <% if (i.uploads != null) {%>
-
-            <img
-            src="<%= i.uploads %>"
-            style="min-width: 100px; max-width: 600px; height: auto;"
-            />
-
+            <% if (i.uploads != null) { %>
+              <div style="max-width: 600px; margin-top: 10px;">
+                <img
+                  src="<%= i.uploads %>"
+                  class="img-fluid"
+                  style="width: 100%; height: auto; display: block;"
+                />
+              </div>
             <% } %>
+
             <div style="display: flex; justify-content: end">
               <% if (i.username === user) { %>
               <a href="/blog/<%=i.id%>">
