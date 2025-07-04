@@ -74,20 +74,26 @@ if (extensions.includes(ext)) {
 
       console.log("Image processed successfully");
       imagePath = "/uploads/resized_" + fileName;
+
+
+        db.query("INSERT INTO posts(content, username, uploads) VALUES ($1, $2, $3)",
+      [req.fields.post, user.username, imagePath],
+      (dbErr) => {
+       if (dbErr) {
+        console.error("Database error:", dbErr);
+        return res.status(500).send("Database error.");
+      }
+
+      return res.redirect("blog");
+    }
+  );
+
     });
   });
 }
 
       //
 
-    await db.query("INSERT INTO posts(content, username, uploads) VALUES ($1, $2, $3)", [
-      req.fields.post,
-      user.username,
-      imagePath
-    ]);
-  
-    
-  return res.redirect("blog");
 
   } else {
     response = "Log in or register new user.";
