@@ -64,11 +64,11 @@
             </div>
             <p style="word-wrap: break-word;"><pre><%= i.content%></pre></p>
             <% if (i.uploads != null) { %>
-              <div style="max-width: 600px; margin-top: 10px;">
+              <div style="max-width: 600px;">
                 <img
                   src="<%= i.uploads %>"
                   class="img-fluid"
-                  style="width: 100%; height: auto; display: block;"
+                  style="display: block; max-width: 100%; height: auto;"
                 />
               </div>
             <% } %>
