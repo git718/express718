@@ -76,17 +76,18 @@ if (extensions.includes(ext)) {
       imagePath = "/uploads/resized_" + fileName;
 
 
-        db.query("INSERT INTO posts(content, username, uploads) VALUES ($1, $2, $3)",
-      [req.fields.post, user.username, imagePath],
-      (dbErr) => {
-       if (dbErr) {
-        console.error("Database error:", dbErr);
-        return res.status(500).send("Database error.");
-      }
-
-      return res.redirect("blog");
-    }
-  );
+  db.query("INSERT INTO posts(content, username, uploads) VALUES ($1, $2, $3)", [
+  req.fields.post,
+  user.username,
+  imagePath
+])
+.then(() => {
+  return res.redirect("blog");
+})
+.catch((dbErr) => {
+  console.error("Database error:", dbErr);
+  return res.status(500).send("Database error.");
+});
 
     });
   });
