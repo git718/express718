@@ -11,30 +11,6 @@ exports.insertposts = async (req, res) => {
     }
 
   let imagePath = null;
-   
-      // let extensions = [".JPEG", ".jpeg", ".GIF", ".gif", ".PNG", ".png", ".JPG", ".jpg", ".WEBP", ".webp"]
-      // for (let i of extensions) {
-      //     if (extensions.includes(path.extname(req.files.image.name))) {
-      //     let fileName = `${Math.random() * 1e16}${path.extname(
-      //       req.files.image.name
-      //     )}`;
-
-      //   im.convert([
-      //     req.files.image.path,
-      //     "-rotate", "0",
-      //     '-resize', '600X600',
-      //     "./public/uploads/resized_" + fileName
-      //   ], (err) => {
-      //     if (err) throw err;
-      //     console.log("image processed successfully");
-        
-      //   })
-
-      //     imagePath = "/uploads/resized_" + fileName;
-      //   } 
-      // } 
-
-      //
 
 let extensions = [".jpeg", ".jpg", ".png", ".gif", ".webp"];
 let ext = path.extname(req.files.image.name).toLowerCase();
@@ -61,7 +37,8 @@ if (extensions.includes(ext)) {
     let args = [inputPath];
 
     if (resizeNeeded) {
-      args.push("-resize", `${MAX_WIDTH}x${MAX_HEIGHT}`);
+      args.push("-resize", `${MAX_WIDTH}x${MAX_HEIGHT}>`);
+
     }
 
     args.push(outputPath);
