@@ -13,28 +13,6 @@
     <title>Posts</title>
   </head>
 
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".avatar-wrapper").forEach((wrapper) => {
-      wrapper.style.width = "80px";
-      wrapper.style.height = "80px";
-      wrapper.style.overflow = "hidden";
-      wrapper.style.borderRadius = "50%";
-      wrapper.style.flexShrink = "0";
-
-      const img = wrapper.querySelector("img");
-      img.style.width = "100%";
-      img.style.height = "100%";
-      img.style.objectFit = "cover";
-      img.style.display = "block";
-    });
-  });
-</script>
-
-
-
-
   <body id="body">
     <%- include('./partials/navbar2.ejs') %> <% if (token) { %> <%-
     include('./partials/loginbar.ejs')%> <%} else { %>
