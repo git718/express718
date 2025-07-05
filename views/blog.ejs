@@ -13,7 +13,7 @@
     <title>Posts</title>
   </head>
 
-  
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const avatars = document.querySelectorAll(".avatar-img");
@@ -120,6 +120,7 @@
                       <%=j.username%>
                       <img
                         src="<%=j.image%>"
+                        class="avatar-img"
                         style="width: 80px; height: 80px; object-fit: cover;"
                         onerror = "this.onerror = null; this.src = 'images/profile-icon-9.png'"
                       />
