@@ -12,6 +12,32 @@
     />
     <title>Posts</title>
   </head>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const avatars = document.querySelectorAll(".avatar-img");
+      
+        avatars.forEach((img) => {
+          const container = img.parentElement;
+        
+          // Ensure the parent container is square and hides overflow
+          container.style.width = "80px";
+          container.style.height = "80px";
+          container.style.overflow = "hidden";
+          container.style.borderRadius = "8px"; // optional: rounded corners
+        
+          // Apply image styles dynamically
+          img.style.width = "100%";
+          img.style.height = "100%";
+          img.style.objectFit = "cover";
+          img.style.display = "block";
+        });
+      });
+    </script>
+
+
+
   <body id="body">
     <%- include('./partials/navbar2.ejs') %> <% if (token) { %> <%-
     include('./partials/loginbar.ejs')%> <%} else { %>
