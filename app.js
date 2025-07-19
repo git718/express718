@@ -91,9 +91,15 @@ app.use(function (request, response, next) {
   next()
 })
 
+app.use((err, req, res, next) => {
+  console.error('Error:', err.stack);
+  res.status(500).send('Something went wrong.');
+});
+
 
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app)
+
 
 httpServer.listen(httpPort, () => {
 	console.log(`HTTP Server running on port ${httpPort}`)
