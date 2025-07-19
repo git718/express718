@@ -1,3 +1,4 @@
 .env
 public/uploads
 access.log
+public/autos
